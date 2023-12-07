@@ -614,3 +614,5 @@ Secret.ts
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,csharp,windows,dotnetcore
+Secret.cs
+Secret.ts
