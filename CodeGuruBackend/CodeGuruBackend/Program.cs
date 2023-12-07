@@ -18,6 +18,22 @@ namespace CodeGuruBackend
 
             builder.Services.AddDbContext<CodeGuruContext>();
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAngularOrigins",
+                builder =>
+                {
+                    builder.WithOrigins(
+                                        "http://localhost:4200"
+                                        )
+                                        .AllowAnyHeader()
+                                        .AllowAnyMethod();
+                });
+            });
+
+            // UseCors
+
+
 
             var app = builder.Build();
 

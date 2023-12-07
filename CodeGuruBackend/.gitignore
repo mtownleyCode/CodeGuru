@@ -429,6 +429,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+Secret.cs
+Secret.ts
+
 ### VisualStudio ###
 
 # User-specific files
@@ -611,3 +614,5 @@ $RECYCLE.BIN/
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,csharp,windows,dotnetcore
+Secret.cs
+Secret.ts

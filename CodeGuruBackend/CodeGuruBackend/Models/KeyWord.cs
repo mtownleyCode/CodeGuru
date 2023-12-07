@@ -9,5 +9,5 @@ public partial class KeyWord
 
     public string? KeyWordCategory { get; set; }
 
-    public string? KeyWord1 { get; set; }
+    public string? KeyWordText { get; set; }
 }
