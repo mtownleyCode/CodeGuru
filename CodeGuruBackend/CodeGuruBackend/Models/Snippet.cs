@@ -11,7 +11,7 @@ public partial class Snippet
 
     public string? Description { get; set; }
 
-    public string? Snippet1 { get; set; }
+    public string? CodeSnippet { get; set; }
 
     public string? KeyWord { get; set; }
 
