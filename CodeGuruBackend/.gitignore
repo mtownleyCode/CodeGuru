@@ -429,6 +429,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+Secret.cs
+Secret.ts
+
 ### VisualStudio ###
 
 # User-specific files
