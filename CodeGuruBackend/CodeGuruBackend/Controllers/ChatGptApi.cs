@@ -14,7 +14,7 @@ namespace CodeGuruBackend.Controllers
         public IActionResult GetResult([FromBody] string prompt)
         {
             //your OpenAI API key
-            string apiKey = "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";
+            string apiKey = "";
             string answer = string.Empty;
             var openai = new OpenAIAPI(apiKey);
             CompletionRequest completion = new CompletionRequest();
