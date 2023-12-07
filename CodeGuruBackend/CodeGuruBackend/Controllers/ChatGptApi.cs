@@ -7,14 +7,14 @@ namespace CodeGuruBackend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ChatGptController : ControllerBase
+    public class ChatGptApi : ControllerBase
     {
         [HttpPost]
         [Route("getanswer")]
         public IActionResult GetResult([FromBody] string prompt)
         {
             //your OpenAI API key
-            string apiKey = 
+            string apiKey = "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";
             string answer = string.Empty;
             var openai = new OpenAIAPI(apiKey);
             CompletionRequest completion = new CompletionRequest();
@@ -35,5 +35,6 @@ namespace CodeGuruBackend.Controllers
                 return BadRequest("Not found");
             }
         }
+
     }
 }

@@ -1,5 +1,7 @@
 
-namespace ChatGptApi
+using CodeGuruBackend.Models;
+
+namespace CodeGuruBackend
 {
     public class Program
     {
@@ -13,6 +15,9 @@ namespace ChatGptApi
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddDbContext<CodeGuruContext>();
+
 
             var app = builder.Build();
 
