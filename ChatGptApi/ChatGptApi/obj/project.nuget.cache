@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ELvUTTsHD2WPPWbvrrVIPvt7fHZ7/8W1FJaJxwGloqNfv3QttWl+efQ3+CrJghldNFnNIfmOfXkj1KC7PidZ4g==",
+  "dgSpecHash": "BWmBFF/HDFPe0B4iYwDoECFXayYHxCuntrXVst4vo8KX9NWBpfkJHeJ6J5Oaqa0uJPyM0SbwEPMxMJDXtuK8cA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\BootCamp\\OneDrive\\Desktop\\School Repos\\ChatGptApi\\ChatGptApi\\ChatGptApi.csproj",
+  "projectFilePath": "C:\\Users\\BootCamp\\OneDrive\\Desktop\\School Repos\\Final Project\\ChatGptApi\\ChatGptApi\\ChatGptApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\BootCamp\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.11\\microsoft.aspnetcore.openapi.7.0.11.nupkg.sha512",
     "C:\\Users\\BootCamp\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
