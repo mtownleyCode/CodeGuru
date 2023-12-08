@@ -4,5 +4,4 @@ export interface Snippets {
     desciption: string;
     codeSnippet: string;
     keyWord: string;
-    userId: number;
 }

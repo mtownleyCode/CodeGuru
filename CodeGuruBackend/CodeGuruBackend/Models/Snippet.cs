@@ -14,8 +14,4 @@ public partial class Snippet
     public string? CodeSnippet { get; set; }
 
     public string? KeyWord { get; set; }
-
-    public int? UserId { get; set; }
-
-    public virtual User? User { get; set; }
 }
