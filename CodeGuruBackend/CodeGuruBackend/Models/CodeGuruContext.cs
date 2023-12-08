@@ -19,20 +19,22 @@ public partial class CodeGuruContext : DbContext
 
     public virtual DbSet<Snippet> Snippets { get; set; }
 
+    public virtual DbSet<SnippetStat> SnippetStats { get; set; }
+
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer(Secret.ConnectionString);
+        => optionsBuilder.UseSqlServer("Server=IRVING-PC;Database=CodeGuru;Trusted_Connection=True;TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<KeyWord>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__KeyWords__3213E83F1DAC26FE");
+            entity.HasKey(e => e.Id).HasName("PK__KeyWords__3213E83F082E7DCB");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.KeyWord1)
+            entity.Property(e => e.KeyWordText)
                 .HasMaxLength(300)
                 .HasColumnName("keyWord");
             entity.Property(e => e.KeyWordCategory)
@@ -42,7 +44,7 @@ public partial class CodeGuruContext : DbContext
 
         modelBuilder.Entity<Snippet>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Snippets__3213E83FFCAE667A");
+            entity.HasKey(e => e.Id).HasName("PK__Snippets__3213E83FC681B25E");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Description)
@@ -54,19 +56,34 @@ public partial class CodeGuruContext : DbContext
             entity.Property(e => e.Language)
                 .HasMaxLength(100)
                 .HasColumnName("language");
-            entity.Property(e => e.Snippet1)
+            entity.Property(e => e.CodeSnippet)
                 .HasMaxLength(4000)
                 .HasColumnName("snippet");
+        });
+
+        modelBuilder.Entity<SnippetStat>(entity =>
+        {
+            entity.HasNoKey();
+
+            entity.Property(e => e.Id)
+                .ValueGeneratedOnAdd()
+                .HasColumnName("id");
+            entity.Property(e => e.SnippetId).HasColumnName("snippetId");
+            entity.Property(e => e.SnippetLike).HasColumnName("snippetLike");
             entity.Property(e => e.UserId).HasColumnName("userId");
 
-            entity.HasOne(d => d.User).WithMany(p => p.Snippets)
+            entity.HasOne(d => d.Snippet).WithMany()
+                .HasForeignKey(d => d.SnippetId)
+                .HasConstraintName("FK__SnippetSt__snipp__440B1D61");
+
+            entity.HasOne(d => d.User).WithMany()
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__Snippets__userId__403A8C7D");
+                .HasConstraintName("FK__SnippetSt__userI__4316F928");
         });
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Users__3213E83F04C7E491");
+            entity.HasKey(e => e.Id).HasName("PK__Users__3213E83FE30F9633");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.FirstName)
