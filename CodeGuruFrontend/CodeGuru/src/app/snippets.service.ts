@@ -2,13 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Snippets } from './snippets';
+import { Secret } from './Secret';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SnippetsService {
 
-  baseUrl : string = "https://localhost:7199/api/Snippets"
+  secret: Secret = {} as Secret;
+  baseUrl : string = this.secret.snippetsUrl
+  
   constructor(private http:HttpClient) { }
 
   GetUser():Observable<Snippets>{
