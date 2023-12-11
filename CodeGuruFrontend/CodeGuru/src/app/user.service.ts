@@ -2,12 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from './user';
+import { Secret } from './secret';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-    baseUrl : string = "https://localhost:7199/api/User"
+  secret: Secret = new Secret();  
+  baseUrl : string = this.secret.userUrl;
+  
   constructor(private http:HttpClient) { }
 
   GetUser():Observable<User>{
