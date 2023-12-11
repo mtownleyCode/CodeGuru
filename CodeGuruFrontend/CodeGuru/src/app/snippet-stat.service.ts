@@ -2,14 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SnippetStat } from './snippet-stat';
-import { Secret } from './secret';
+import { Secret } from './Secret';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SnippetStatService {
-  key: Secret = new Secret();
-  baseUrl : string = this.key.snippetStatUrl;
+
+  secret: Secret = {} as Secret;
+  baseUrl : string = this.secret.snippetStatUrl
 
   constructor(private http:HttpClient) { }
 

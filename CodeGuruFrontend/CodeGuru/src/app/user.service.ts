@@ -2,14 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from './user';
-import { Secret } from './secret';
+import { Secret } from './Secret';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  secret: Secret = new Secret();  
-  baseUrl : string = this.secret.userUrl;
+  
+  secret: Secret = {} as Secret;
+  baseUrl : string = this.secret.usersUrl;
   
   constructor(private http:HttpClient) { }
 

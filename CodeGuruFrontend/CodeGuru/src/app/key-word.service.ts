@@ -2,15 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { KeyWord } from './key-word';
-import { Secret } from './secret';
+import { Secret } from './Secret';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class KeyWordService {
-  secret: Secret = new Secret();
-  baseUrl : string =  this.secret.keyWordsUrl;
-  
+
+  secret: Secret = {} as Secret;
+  baseUrl : string = this.secret.keyWordsUrl
+
   constructor(private http:HttpClient) { }
 
   GetUser():Observable<KeyWord>{
