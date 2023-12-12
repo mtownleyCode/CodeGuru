@@ -1,0 +1,40 @@
+<div class="mainContainer">
+    <div class="login">
+        <div class="row logo">
+            <div class="col text-center">
+                <p class="title">{{this.language}} - {{this.template}}</p>
+            </div>
+        </div>
+        <div class="row text-center">
+            <p>
+                Number of Inputs Needed:
+                <select #inputs style="width: 50px" name="snippetSelect" (change)="GetNumberOfInputs(inputs.value)">
+                    <option>0</option>
+                    <option *ngFor="let number of numbersSelect" value={{number}}>{{number}}</option>
+                </select>
+            </p>
+            <div *ngFor="let number of filteredNumbers; index as i">
+                <p>
+                    Input #{{number}}:
+                    <input #input type="text" name="name" (change)="AddToList(input.value, i)">
+                </p>
+            </div>
+            <div *ngIf="filteredNumbers.length > 0">
+                <button class="button btn btn-primary"  (click)="GetCode()">
+                    Get Code
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <textarea class="snippet">{{this.prompt}}</textarea>
+        </div>
+        <div class="row">
+            <div class="container text-center">
+                <div class="button btn btn-primary" style="width: 25%;" id="sendMessage" (click)="CopyToClipboard(this.prompt)">Copy Code
+                </div>
+            </div>
+        </div>
+        <iframe id="oc-editor" frameBorder="0" height="600px" src="https://onecompiler.com/embed/mysql?listenToEvents=true" width="100%">
+        </iframe>
+    </div>
+</div>
