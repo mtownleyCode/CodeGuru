@@ -11,7 +11,9 @@ public partial class Snippet
 
     public string? Description { get; set; }
 
-    public string? CodeSnippet { get; set; }
+    public string? SnippetText { get; set; }
 
     public string? KeyWord { get; set; }
+
+    public virtual ICollection<SnippetStat> SnippetStats { get; set; } = new List<SnippetStat>();
 }
