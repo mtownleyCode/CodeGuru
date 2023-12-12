@@ -1,0 +1,22 @@
+<div>
+    <div class="row" style="padding-top: 20px; padding-bottom: 20px; background-color: #DBDAEA;;">
+        <div class="col text-end" style="flex-grow: 2;">
+            <select #snippetType style="margin-left: 50%; width: 130px" (change)="SetSnippetsToChoose(snippetType.value)">
+                <option value="">Select Type</option>
+                <option value={{distinctSnippet}} *ngFor="let distinctSnippet of distinctSnippets">{{distinctSnippet}}</option>
+            </select>
+        </div>
+        <div class="col text-start" style="flex-grow: 1;">
+            <select #snippetName style="width: 130px" name="snippetSelect" (change)="SetSnippetId(snippetName.value)">
+                <option>Select Snippet</option>
+                <option *ngFor="let snippetToChoose of snippetsToChoose" value={{snippetToChoose.id}}>{{snippetToChoose.description}}</option>
+            </select>
+        </div>
+        <div class="col" style="flex-grow: 2;">
+            <a [routerLink]="['viewsnippet/', snippetId]">
+            <button class="button btn btn-primary">Get Code</button>
+            </a>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
