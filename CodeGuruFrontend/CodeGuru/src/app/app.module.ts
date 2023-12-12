@@ -11,7 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent}
+  {path: 'home', component: HomeComponent},
+  {path : '', redirectTo: 'home', pathMatch:'full'}
 ];
 
 @NgModule({

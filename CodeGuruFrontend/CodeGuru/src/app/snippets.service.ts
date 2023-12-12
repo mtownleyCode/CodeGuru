@@ -9,7 +9,7 @@ import { Secret } from './Secret';
 })
 export class SnippetsService {
 
-  secret: Secret = {} as Secret;
+  secret: Secret = new Secret();
   baseUrl : string = this.secret.snippetsUrl
   
   constructor(private http:HttpClient) { }
