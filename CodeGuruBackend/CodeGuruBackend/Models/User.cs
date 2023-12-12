@@ -16,4 +16,6 @@ public partial class User
     public string? LastName { get; set; }
 
     public string? UserLevel { get; set; }
+
+    public virtual ICollection<SnippetStat> SnippetStats { get; set; } = new List<SnippetStat>();
 }
