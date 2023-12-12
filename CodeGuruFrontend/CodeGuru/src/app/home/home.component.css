@@ -1,11 +1,230 @@
 /* Hide scrollbar for Chrome, Safari and Opera */
 .postContainer::-webkit-scrollbar {
-    display: none;
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.postContainer {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+}
+
+@media (max-width: 767px) {
+    .hidden-mobile{
+        display: none;
+
+    }
+
+    .logo{
+        height: 70px; 
+        width: auto; 
+        background-color: transparent;
+        margin: 10px;
+        margin-left: 4vw;
+        border-radius: 14px;
+        
+    }
+
+    .accountIcon{
+        padding-top: 40px;
+        padding-right: 6vw;
+        font-size: 25px;
+        color: lightgray
+
+    }
+
+    .slh-header {
+        height: 90px;
+        background-image: 
+        linear-gradient(to right bottom, 
+         rgba(76, 216, 255, 0.8),
+         rgba(30, 108, 217, 0.8)),
+         url("/assets/img/background.jpg");
+    
+    }
+
+    .slh-name {
+        position: absolute;
+        top: 65px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-size: 5vh;
+        background-color: white;
+        color: #777;
+        font-size: 38px;
+        padding-left: 30px;
+        padding-right: 30px;
+        border-radius: 15px;
+        font-family:Brush Script MT, cursive;
+    }
+
+    .blue-bar{
+        flex-grow: 1; 
+        background-color: lightblue; 
+        height: 20px
+    }
+
+    .icons{
+        padding: 15px; 
+        font-size: 25px;
+
+    }
+
+    
+    .add-people-icon{
+        padding-left: 20px;
+    }
+
   }
-  
-  /* Hide scrollbar for IE, Edge and Firefox */
-  .postContainer {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+
+  @media (min-width: 768px) {
+
+    .logo{
+        height: 70px; 
+        width: auto; 
+        background-color: transparent;        
+        margin: 10px;
+        margin-left: 4vw;
+        border-radius: 14px;
+    
+    }
+
+    .accountIcon{
+        padding-top: 40px;
+        padding-right: 6vw;
+        font-size: 35px;
+        color: lightgray;
+
+    }
+
+    .slh-header {
+        height: 90px;
+        background-image: 
+        linear-gradient(to right bottom, 
+         rgba(76, 216, 255, 0.8),
+         rgba(30, 108, 217, 0.8)),
+         url("/assets/img/background.jpg");
+         filter: drop-shadow(0 30px 10px rgba(0,0,0,0.125));    
+            
+    }
+
+    .slh-name {
+        position: absolute;
+        top: 65px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        background-color: white;
+        color: #777;
+        font-size: calc(18px + 3vw);
+        padding-left: 8vw;
+        padding-right: 8vw;
+        border-radius: 15px;
+        font-family:Brush Script MT, cursive;
+    }
+
+    .blue-bar{
+        flex-grow: 1; 
+        background-color: lightblue; 
+        height: 20px
+
+    }
+
+    .icons{
+        padding-top: 10px; 
+        font-size: 30px;
+
+    }
+
   }
-  
+
+  @media (min-width: 1050px) {
+
+    .logo{
+        height: 7vw;
+        width: auto;
+        background-color: transparent;
+        margin: 10%;
+        margin-left: 4vw;
+        border-radius: 14px;
+    
+    }
+    
+    .accountIcon{
+        padding-top: 4vw; 
+        font-size: 35px;
+        color: lightgray;
+
+    }
+
+    .slh-header {
+        height: 9vw;
+        background-image: 
+        linear-gradient(to right bottom, 
+            rgba(76, 216, 255, 0.8),
+            rgba(30, 108, 217, 0.8)),
+            url("/assets/img/background.jpg");
+            filter: drop-shadow(0 30px 10px rgba(0,0,0,0.125));    
+    
+    }
+
+    .slh-name {
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        background-color: white;
+        color: #777;
+        font-size: calc(12px + 3vw);
+        padding-left: 10vw;
+        padding-right: 10vw;
+        border-radius: 15px;
+        font-family:Brush Script MT, cursive;
+    }
+
+    .blue-bar{
+        flex-grow: 1; 
+        background-color: lightblue; 
+        height: 2vw
+    }
+
+    .icons{
+        padding-top: 10px; 
+        font-size: 35px;
+    }
+
+  }
+
+.iconBox {
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+
+.icons:hover{    
+    transform: scale(1.125);
+    color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.9);
+    transition: all .3s ease;
+    
+}
+
+
+.iconText{
+    padding-top: 5px;
+    font-family:'Trebuchet MS', Arial, sans-serif;
+    font-size: 19px;
+}
+
+
+html { scroll-behavior: smooth; }
+
+
+.slh-container { background-color: black; }
+
+
+.slh-row {
+    display: flex;
+    
+}
