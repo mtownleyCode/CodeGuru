@@ -1,7 +1,7 @@
 export interface Snippets {
     id: number;
     language: string;
-    desciption: string;
-    codeSnippet: string;
+    description: string;
+    snippetText: string;
     keyWord: string;
 }
