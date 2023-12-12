@@ -10,7 +10,7 @@ import { Secret } from './Secret';
 })
 export class KeyWordService {
 
-  secret: Secret = {} as Secret;
+  secret: Secret = new Secret();
   baseUrl : string = this.secret.keyWordsUrl
 
   constructor(private http:HttpClient) { }

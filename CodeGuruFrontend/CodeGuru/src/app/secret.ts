@@ -3,4 +3,5 @@ export class Secret {
     snippetsUrl: string = "https://localhost:7199/api/Snippets";
     snippetStatUrl: string = "https://localhost:7199/api/SnippetStat";
     keyWordsUrl: string = "https://localhost:7199/api/KeyWords";
+    chatGptUrl: string = "https://localhost:7199/api/ChatGptapi/getanswer?prompt=";
 }
