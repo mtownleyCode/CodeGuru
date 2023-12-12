@@ -9,21 +9,23 @@ import { Secret } from './Secret';
 })
 export class SnippetsService {
 
+  snippets: Snippets[] = [];
+
   secret: Secret = new Secret();
   baseUrl : string = this.secret.snippetsUrl
   
   constructor(private http:HttpClient) { }
 
-  GetUser():Observable<Snippets>{
-    return this.http.get<Snippets>(this.baseUrl);
+  GetSnippets():Observable<Snippets[]>{
+    return this.http.get<Snippets[]>(this.baseUrl);
   }
-  AddUser(newSnippet: Snippets):Observable<Snippets>{
+  AddSnippets(newSnippet: Snippets):Observable<Snippets>{
     return this.http.post<Snippets>(this.baseUrl, newSnippet);
   }
-  DeleteUser(snippetId: number):Observable<void>{
+  DeleteSnippets(snippetId: number):Observable<void>{
     return this.http.delete<void>(this.baseUrl+"/"+snippetId);
   }
-  EditUser(id: number, editSnippets: Snippets):Observable<void>{
-    return this.http.put<void>(this.baseUrl+"/"+id, editSnippets);
-  }
+  // EditSnippets(id: number, editSnippets: Snippets):Observable<void>{
+  //   return this.http.put<void>(this.baseUrl+"/"+id, editSnippets);
+  // }
 }

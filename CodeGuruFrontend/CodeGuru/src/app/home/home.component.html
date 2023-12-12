@@ -1,45 +1,49 @@
 <div class="slh-header">
-    <div class="slh-row">
-      <div class="col" style="flex-grow: 1;">
-        <img class="logo" src="/assets/img/logo.jpg">
-      </div>
-      <div class="col text-center" style="flex-grow: 10;">
-        <p class="slh-name">Up Meet</p>
-      </div>
-      <div class="col" style="flex-grow: 1;">
-        <a [routerLink]="['/user', 0]">
-          <i class="fa fa-user-circle-o accountIcon" aria-hidden="true"></i>
-        </a>
-      </div>
+  <div class="slh-row">
+    <div class="col" style="flex-grow: 1;">
+      <img class="logo" src="/assets/img/logo.jpg">
+    </div>  
+    <div class="col text-center" style="flex-grow: 10;">
+      <p class="slh-name">Up Meet</p>
+    </div>
+    <div class="col" style="flex-grow: 1;">
+      <a [routerLink]="['/user', 0]">
+        <i class="fa fa-user-circle-o accountIcon" aria-hidden="true"></i>
+      </a>
     </div>
   </div>
-  <div class="slh-container">
-      <div class="slh-row">
-          <div class="col blue-bar">
-          </div>
-      </div>
-  </div>
-  <div class="slh-container">
-      <div class="slh-row">
-          <div class="col text-center" style="flex-direction: column; flex-grow: 1; background-color:white; padding: 5px 5px;">
-            <a [routerLink]="['languages']">
-              <i class="fa-regular fa-calendar icons" aria-hidden="true" style="color:purple;padding-top: 25px;"></i>
-              </a>
-              <p class="iconText hidden-mobile">Snippets</p>
-              <a [routerLink]="['querytemplateselect']">
-                <i class="fa-brands fa-gratipay icons" aria-hidden="true" style="color:red"></i>
-              </a>
-              <p class="iconText hidden-mobile">Query</p>
+</div>
+<div class="slh-container">
+    <div class="slh-row">
+        <div class="col blue-bar">              
+        </div>
+    </div>
+</div>
+<div class="slh-container">
+    <div class="slh-row">
+        <div class="col text-center" style="flex-direction: column; flex-grow: 1; background-color:white; padding: 5px 5px;">
+          <a [routerLink]="['languages']">
+            <i class="fa-regular fa-calendar icons" aria-hidden="true" style="color:purple;padding-top: 25px;"></i>
+            </a>              
+            <p class="iconText hidden-mobile">Snippets</p> 
+            <a [routerLink]="['querytemplateselect']">
               <i class="fa-brands fa-gratipay icons" aria-hidden="true" style="color:red"></i>
-              <p class="iconText hidden-mobile">Unit Tests</p>
-              <a [routerLink]="['/addNewEvent']">
-                <i class="fa-regular fa-calendar-plus icons" aria-hidden="true" style="color:green; font-size: 35px;"></i>
-                </a>
-              <p class="iconText hidden-mobile">Translation</p>        </div>
-          <div class="col postContainer" style="padding-bottom: 25px; flex-direction: column; flex-grow: 10; overflow-y: auto; height: 100vh; background-color: darkgray;">
-            <!-- <app-add-snippet></app-add-snippet> -->
-            <router-outlet></router-outlet>
-          </div>
-          <div class="col text-center hidden-mobile" style="flex-direction: column; flex-grow: 1; background-color:white; overflow-y: auto;">      </div>
+            </a>              
+            <p class="iconText hidden-mobile">Query</p>
+            <i class="fa-brands fa-gratipay icons" aria-hidden="true" style="color:red"></i>
+            <p class="iconText hidden-mobile">Unit Tests</p>
+            <a [routerLink]="['/addNewEvent']">
+              <i class="fa-regular fa-calendar-plus icons" aria-hidden="true" style="color:green; font-size: 35px;"></i>
+              </a>
+            <p class="iconText hidden-mobile">Translation</p>            
+
+        </div>
+        <div class="col postContainer" style="padding-bottom: 25px; flex-direction: column; flex-grow: 10; overflow-y: auto; height: 100vh; background-color: darkgray;">
+          <!-- <app-add-snippet></app-add-snippet> -->
+          <router-outlet></router-outlet>          
+        </div>
+        <div class="col text-center hidden-mobile" style="flex-direction: column; flex-grow: 1; background-color:white; overflow-y: auto;">
+          
       </div>
-  </div>
+    </div>    
+</div>
