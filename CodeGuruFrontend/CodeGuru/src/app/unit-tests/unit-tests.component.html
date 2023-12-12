@@ -1,0 +1,28 @@
+<div class="mainContainer">
+    <div class="login">
+        <div class="row text-center">
+            <p>
+                Number of Inputs Needed:
+                <select #inputs style="width: 50px" name="snippetSelect" (change)="GetLanguageToUse(inputs.value)">
+                    <option>0</option>
+                    <option *ngFor="let language of languages" value={{language.languageText}}>{{language.languageText}}</option>
+                </select>
+            </p>
+        </div>
+        <div class="row">
+            <textarea class="snippet"></textarea>
+        </div>
+        <div class="row">
+            <textarea class="snippet"></textarea>
+        </div>
+        <div class="row">
+            <div class="container text-center">
+                <div class="button btn btn-primary" style="width: 25%;" id="sendMessage" (click)="CopyToClipboard(this.prompt)">Copy Code
+                </div>
+            </div>
+        </div>
+        <iframe id="oc-editor" frameBorder="0" height="600px" src="https://onecompiler.com/embed/mysql?listenToEvents=true" width="100%">
+        </iframe>
+    </div>
+</div>
+
