@@ -31,7 +31,6 @@ namespace CodeGuruBackend
                 });
             });
 
-            // UseCors
 
 
 
@@ -48,6 +47,7 @@ namespace CodeGuruBackend
 
             app.UseAuthorization();
 
+            app.UseCors("AllowAngularOrigins");
 
             app.MapControllers();
 

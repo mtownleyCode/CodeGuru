@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using OpenAI_API;
 using OpenAI_API.Completions;
+using System.Text.Json;
 
 namespace CodeGuruBackend.Controllers
 {
@@ -11,7 +11,7 @@ namespace CodeGuruBackend.Controllers
     {
         [HttpPost]
         [Route("getanswer")]
-        public IActionResult GetResult([FromBody] string prompt)
+        public IActionResult GetResult(string prompt)
         {
             //your OpenAI API key
             string apiKey = Secret.APIKey;
@@ -28,6 +28,9 @@ namespace CodeGuruBackend.Controllers
                 {
                     answer = item.Text;
                 }
+
+                answer = JsonSerializer.Serialize(answer);
+
                 return Ok(answer);
             }
             else
