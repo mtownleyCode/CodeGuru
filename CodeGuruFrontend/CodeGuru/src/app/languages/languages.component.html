@@ -1,0 +1,28 @@
+<div class="eventContainer">
+    <section class="eventBackground">
+        <div class="col">
+            <div class="row">
+                <div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col" *ngFor="let language of languages; index as i">
+                                <div class="container event">
+                                    <div class="container container-info">
+                                        <div class="wrapper">
+                                            <div>
+                                                <a [routerLink]="['/home/codeselect', language.languageText]">
+                                                    <img src="/assets/img/{{language.image}}" class="languageImage" />
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
