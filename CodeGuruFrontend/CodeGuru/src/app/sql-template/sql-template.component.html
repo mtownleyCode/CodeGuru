@@ -1,0 +1,75 @@
+
+<div class="mainContainer">
+    <div class="login">
+        <div class="row logo">
+            <div class="col text-center">
+                <p class="title">SQL Table Template</p>
+            </div>
+        </div>
+        <div class="row text-center">
+            <p>
+                Table Name:
+                <input #tablename type="text" name="name" [(ngModel)]="tableName">
+            </p>
+            <p>
+                Number of Columns:
+                <select #inputs style="width: 50px" name="snippetSelect" (change)="GetNumberOfColoumns(inputs.value)">
+                    <option>0</option>
+                    <option *ngFor="let number of columnsSelect" value={{number}}>{{number}}</option>
+                </select>
+            </p>
+            <div>
+                <div *ngFor="let sqlInput of sqlInputs; index as i">
+                    <div class="row">
+                        <div class="col text-start" style="flex-grow: 2; margin-top: 15px;">
+                            <div>
+                                <p>Name #{{i + 1}}:</p>
+                                <input #input type="text" name="name" style="width: 100%;" [(ngModel)]="sqlInputs[i].columnName">
+                            </div>  
+                        </div>
+                        <div class="col text-start" style=" margin-top: 15px;">
+                            <div>
+                                <p>Input Type:</p>
+                                <select #inputs style="width: 150px;" name="inputSelect" (change)="CheckInputType(inputs.value,i)">
+                                    <option>Select Type</option>
+                                    <option #inputs *ngFor="let type of inputTypes" value={{type}}>{{type}}</option>
+                                </select>
+                            </div>  
+                        </div>
+                        <div class="col text-start" *ngIf="charactersNeeded"  style=" margin-top: 15px;">
+                            <div>
+                                <p># of Characters:</p>
+                                <input #input type="number" name="name" style="width: 75px;" [(ngModel)]="sqlInputs[i].numberofChars">
+                            </div>  
+                        </div>
+                        <!-- <div class="row">
+                            <div class="col text-start">
+                                <div>
+                                    <button class="button btn btn-primary" (click)="AddToList(input.value, i)" style="margin-top: 10px; margin-bottom: 15px;">
+                                        Add Column
+                                    </button>
+                                </div>  
+                            </div>
+                        </div> -->
+                    </div>             
+                </div>                
+            </div>
+            <div *ngIf="filteredColumns.length > 0">
+                <button class="button btn btn-primary" (click)="GetCode(this.tableName)" style="margin: 25px">
+                    Get Code
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <textarea class="snippet">{{this.chatGpt.response}}</textarea>
+        </div>
+        <div class="row">
+            <div class="container text-center">
+                <div class="button btn btn-primary" style="width: 25%;" id="sendMessage" (click)="CopyToClipboard(this.chatGpt.response)">Copy Code
+                </div>
+            </div>
+        </div>
+        <iframe id="oc-editor" frameBorder="0" height="600px" src="https://onecompiler.com/embed/mysql?listenToEvents=true" width="100%">
+        </iframe>
+    </div>
+</div>
