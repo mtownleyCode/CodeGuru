@@ -1,4 +1,4 @@
-export interface Prompt {
+export interface chatGpt {
     prompt: string;
     response: string;
 }

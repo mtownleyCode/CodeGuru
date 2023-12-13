@@ -2,27 +2,43 @@
     <div class="login">
         <div class="row text-center">
             <p>
-                Number of Inputs Needed:
-                <select #inputs style="width: 50px" name="snippetSelect" (change)="GetLanguageToUse(inputs.value)">
-                    <option>0</option>
+                Language:
+                <select #inputs style="width: 150px" name="snippetSelect" (change)="GetLanguageToUse(inputs.value)">
+                    <option>Select Language</option>
                     <option *ngFor="let language of languages" value={{language.languageText}}>{{language.languageText}}</option>
                 </select>
             </p>
         </div>
         <div class="row">
-            <textarea class="snippet"></textarea>
+            <div class="col text-center" style="margin-top:25px ;">
+                <h3>Code To Unit Test</h3>
+            </div>
         </div>
         <div class="row">
-            <textarea class="snippet"></textarea>
+            <textarea class="snippet" style="margin-bottom: 25px;" [(ngModel)]="this.chatGpt.prompt">{{this.chatGpt.prompt}}</textarea>
         </div>
-        <div class="row">
+        <div class="row text-center">
             <div class="container text-center">
-                <div class="button btn btn-primary" style="width: 25%;" id="sendMessage" (click)="CopyToClipboard(this.prompt)">Copy Code
+                <div class="button btn btn-primary" style="width: 25%;" (click)="GetUnitTest()">
+                    Get Unit Tests
                 </div>
             </div>
         </div>
-        <iframe id="oc-editor" frameBorder="0" height="600px" src="https://onecompiler.com/embed/mysql?listenToEvents=true" width="100%">
-        </iframe>
+        <div class="row">
+            <div class="col text-center" style="margin-top:25px ;">
+                <h3>Unit Tests</h3>
+            </div>
+        </div>
+        <div class="row">
+            <textarea class="snippet" style="margin-top: 10px;" id="textAreaResponse" [(ngModel)]="this.chatGpt.response"></textarea>
+        </div>
+        <div class="row">
+            <div class="container text-center" style="margin-top: 25px;">
+                <div class="button btn btn-primary" style="width: 25%;" id="sendMessage" (click)="CopyToClipboard(this.chatGpt.response)">
+                    Copy Code
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

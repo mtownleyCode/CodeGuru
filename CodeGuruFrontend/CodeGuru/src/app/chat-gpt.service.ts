@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Secret } from './Secret';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { chatGpt } from './chatGpt';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +14,10 @@ export class ChatGPTService {
   
   constructor(private http:HttpClient) { }
 
-  GetAnswer(prompt: string):Observable<string>{
-    console.log("prompt" + prompt)
-    this.baseUrl = this.baseUrl + prompt;   
-    return this.http.post<string>(this.baseUrl, prompt);
+  GetAnswer(chatGpt: chatGpt):Observable<chatGpt>{
+    this.baseUrl = this.baseUrl + chatGpt;   
+    console.log(this.baseUrl)
+    return this.http.post<chatGpt>(this.baseUrl, chatGpt);
 
   }
 }
