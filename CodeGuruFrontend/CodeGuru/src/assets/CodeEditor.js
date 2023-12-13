@@ -6,7 +6,7 @@ exports.changecode =
     console.log(iFrame)
     iFrame.contentWindow.postMessage({
       eventType: 'populateCode',
-      language: language,
+      language: language.toLowerCase(),
       files: [
         {
           "name": "HelloWorld.html",
