@@ -13,10 +13,10 @@
             </select>
         </div>
         <div class="col" style="flex-grow: 2;">
-            <a [routerLink]="['viewsnippet/', snippetId]">
-            <button class="button btn btn-primary">Get Code</button>
-            </a>
+            <!-- <a [routerLink]="['viewsnippet/', snippetId]"> -->              
+            <button class="button btn btn-primary" (click)="Refresh()">Get Code</button>
+            <!-- </a> -->
         </div>
     </div>
 </div>
-<router-outlet></router-outlet>
+<app-view-snippet [snippet]="snippet"> </app-view-snippet>
