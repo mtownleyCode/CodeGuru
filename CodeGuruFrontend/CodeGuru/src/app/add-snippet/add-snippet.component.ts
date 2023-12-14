@@ -25,6 +25,4 @@ export class AddSnippetComponent implements OnInit{
   console.log(this.test)
   }
 
-
-
 }
