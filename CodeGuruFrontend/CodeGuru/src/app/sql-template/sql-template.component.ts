@@ -53,6 +53,7 @@ export class SqlTemplateComponent {
       this.singleSqlInput.numberofChars = 0;
 
       this.sqlInputs.push(this.singleSqlInput);
+      console.log(this.sqlInputs)
     })
   }
 
