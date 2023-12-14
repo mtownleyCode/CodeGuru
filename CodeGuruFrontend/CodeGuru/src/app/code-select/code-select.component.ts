@@ -40,6 +40,7 @@ export class CodeSelectComponent implements OnInit{
   }
 
   SetSnippetId(id: string){
+    console.log('select ' + id)
     this.snippetId = parseInt(id);
    
   }
