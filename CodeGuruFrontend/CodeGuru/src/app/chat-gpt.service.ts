@@ -1,6 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Secret } from './Secret';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { chatGpt } from './chatGpt';
 
