@@ -13,9 +13,12 @@ export class UnitTestsComponent implements OnInit{
   
   @Input()
   chatGpt: chatGpt = {} as chatGpt;
+
+  @Input()
+  userPrompt
  
   languages: Language[] = [];
-  promptToSend: string = "";
+  language:string = ""; 
 
   constructor(private languagesService: LanguagesService, private chatGptService: ChatGPTService) { }
 
@@ -31,21 +34,20 @@ export class UnitTestsComponent implements OnInit{
   }
 
   GetLanguageToUse(language: string){
-
+    this.language = language;
   }
 
   GetUnitTest(){
 
-    this.chatGpt.prompt = "I need unit tests for " + this.chatGpt.prompt
+    this.chatGpt.prompt = "I need unit tests for " + this.userPrompt + 'in' + this.language
 
-    this.chatGptService.GetAnswer(this.chatGpt).subscribe(
+    console.log(this.chatGpt.prompt)
+
+    this.chatGptService.GetAnswer(this.chatGpt, 'newChatGpt').subscribe(
       (answerResult) =>{ 
         
         this.chatGpt.response = answerResult.response.trim();
         console.log(this.chatGpt.response)
-        // let x = document.getElementById("textAreaResponse")!;
-        // x.value = "GeeksforGeeks";
-                
       }
     )
   }
