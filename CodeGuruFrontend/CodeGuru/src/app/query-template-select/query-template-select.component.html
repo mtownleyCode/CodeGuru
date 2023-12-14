@@ -6,7 +6,7 @@
                 <option value={{language.languageText}} *ngFor="let language of languages">{{language.languageText}}</option>
             </select>
         </div>
-        <div class="col text-start" style="flex-grow: 1;">
+        <div class="col text-start" style="flex-grow: 1;" *ngIf="filteredTemplates.length != 0">
             <select #templateName style="width: 130px" name="snippetSelect" (change)="SetTemplate(templateName.value)">
                 <option>Select Element</option>
                 <option *ngFor="let template of filteredTemplates" value={{template.elementType}}>{{template.elementType}}</option>

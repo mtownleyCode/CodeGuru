@@ -41,8 +41,8 @@ export class QueryTemplateSelectComponent implements OnInit{
 
   SetLanguage(language: string){
     this.language = language;
-    this.filteredTemplates = this.queryTemplates.filter(q => q.language === language);
-    
+    this.filteredTemplates = this.queryTemplates.filter(q => q.language === language && q.elementType != "");
+
   }
 
   SetTemplate(template: string){
@@ -51,17 +51,15 @@ export class QueryTemplateSelectComponent implements OnInit{
   }
 
   NavigateToCustomTemplate(){
-    console.log(this.language)
 
     if (this.queryTemplate === 'Form' || this.queryTemplate === 'Table'){      
-      console.log('generic')
       this.router.navigate(['./home/querytemplateselect/genericinputtemplate/', this.queryTemplate, this.language])
 
     }
 
     else if (this.language === 'Sql'){
-      console.log('sql')
       this.router.navigate(['./home/querytemplateselect/sql/'])
+
     }
 
   }
