@@ -56,14 +56,12 @@ export class GenericInputTemplateComponent implements OnInit {
   }
 
   GetCode(){
-
     this.chatGpt.prompt = "give me code for a simple " + this.template + " " + this.language;
     this.inputsToInclude.forEach((input)=>{
-      this.chatGpt.prompt = this.chatGpt.prompt + " " + input;
-    
+      this.chatGpt.prompt = this.chatGpt.prompt + " " + input;  
       }
     );
-    
+
     this.chatGptService.GetAnswer(this.chatGpt, 'newChatGpt').subscribe(
       (answerResult) =>{ 
         var test = answerResult.response.split("```")        
@@ -75,9 +73,7 @@ export class GenericInputTemplateComponent implements OnInit {
           this.chatGpt.response = this.chatGpt.response + line + '\n'; 
          }
         )
-        changecode(this.chatGpt.response, this.language);
-
-        
+        changecode(this.chatGpt.response, this.language);       
       }
     );
 

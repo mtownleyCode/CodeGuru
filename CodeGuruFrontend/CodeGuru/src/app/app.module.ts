@@ -16,8 +16,8 @@ import { CustomFormComponent } from './custom-form/custom-form.component';
 import { QueryTemplateSelectComponent } from './query-template-select/query-template-select.component';
 import { GenericInputTemplateComponent } from './generic-input-template/generic-input-template.component';
 import { UnitTestsComponent } from './unit-tests/unit-tests.component';
+import { TranslateComponent } from './translate/translate.component';
 import { SqlTemplateComponent } from './sql-template/sql-template.component';
-
 const routes: Routes = [
   {path: 'home', component: HomeComponent,
    children: [
@@ -31,9 +31,10 @@ const routes: Routes = [
         {path: 'genericinputtemplate/:template/:language', component: GenericInputTemplateComponent},
         {path: 'sql', component: SqlTemplateComponent}
     ]},
+    {path: 'translate', component: TranslateComponent},
     {path : '', redirectTo: 'languages', pathMatch:'full'},
-    {path: 'unittests', component: UnitTestsComponent}
-  ]},
+    {path: 'unittests', component: UnitTestsComponent},
+   ]},     
   {path : '', redirectTo: 'home', pathMatch:'full'}
 ];
 
@@ -52,7 +53,9 @@ const routes: Routes = [
     QueryTemplateSelectComponent,
     GenericInputTemplateComponent,
     UnitTestsComponent,
+    TranslateComponent,
     SqlTemplateComponent
+
   ],
   imports: [
     BrowserModule,
