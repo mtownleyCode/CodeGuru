@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CodeGuruBackend.Models;
+using Microsoft.AspNetCore.Mvc;
 using OpenAI_API;
 using OpenAI_API.Completions;
 using System.Text.Json;
@@ -11,27 +12,25 @@ namespace CodeGuruBackend.Controllers
     {
         [HttpPost]
         [Route("getanswer")]
-        public IActionResult GetResult(string prompt)
+        public IActionResult GetResult(ChatGptClass chatGpt)
         {
             //your OpenAI API key
             string apiKey = Secret.APIKey;
-            string answer = string.Empty;
             var openai = new OpenAIAPI(apiKey);
             CompletionRequest completion = new CompletionRequest();
-            completion.Prompt = prompt;
+            completion.Prompt = chatGpt.Prompt;
             completion.Model = "text-davinci-003";
             completion.MaxTokens = 4000;
+            completion.TopP = 0.1;            
             var result = openai.Completions.CreateCompletionAsync(completion);
             if (result != null)
             {
                 foreach (var item in result.Result.Completions)
                 {
-                    answer = item.Text;
+                    chatGpt.Response = item.Text;
                 }
 
-                answer = JsonSerializer.Serialize(answer);
-
-                return Ok(answer);
+                return Ok(chatGpt);
             }
             else
             {

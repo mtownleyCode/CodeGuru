@@ -42,8 +42,6 @@ export class LanguagesComponent implements OnInit{
       (thing, i, arr) => arr.indexOf(thing) === i
     );
 
-    console.log(distinctThings)
-
   }
 
   

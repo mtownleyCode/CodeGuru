@@ -16,6 +16,7 @@ export class QueryTemplateService {
 
   GetQueryTemplates():Observable<QueryTemplate[]>{
     return this.http.get<QueryTemplate[]>(this.baseUrl);
+    
   }
   
 }

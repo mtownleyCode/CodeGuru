@@ -17,22 +17,25 @@ import { QueryTemplateSelectComponent } from './query-template-select/query-temp
 import { GenericInputTemplateComponent } from './generic-input-template/generic-input-template.component';
 import { UnitTestsComponent } from './unit-tests/unit-tests.component';
 import { TranslateComponent } from './translate/translate.component';
-
+import { SqlTemplateComponent } from './sql-template/sql-template.component';
 const routes: Routes = [
   {path: 'home', component: HomeComponent,
    children: [
-    {path: 'languages', component: LanguagesComponent},
+    {path: 'languages', component: LanguagesComponent},    
     {path: 'codeselect/:language', component: CodeSelectComponent,
       children:[
-        {path: 'viewsnippet/:id', component: ViewSnippetComponent}
-      ]},
+        {path: 'viewsnippet/:id', component: ViewSnippetComponent},
+      ]},      
     {path: 'querytemplateselect', component: QueryTemplateSelectComponent,
       children:[
-        {path: 'genericinputtemplate/:template/:language', component: GenericInputTemplateComponent}
+        {path: 'genericinputtemplate/:template/:language', component: GenericInputTemplateComponent},
+        {path: 'sql', component: SqlTemplateComponent}
     ]},
     {path: 'translate', component: TranslateComponent},
     {path : '', redirectTo: 'languages', pathMatch:'full'}
    ]},
+    {path: 'unittests', component: UnitTestsComponent}
+  ]},
   {path : '', redirectTo: 'home', pathMatch:'full'}
 ];
 
@@ -51,7 +54,9 @@ const routes: Routes = [
     QueryTemplateSelectComponent,
     GenericInputTemplateComponent,
     UnitTestsComponent,
-    TranslateComponent
+    TranslateComponent,
+    SqlTemplateComponent
+
   ],
   imports: [
     BrowserModule,
