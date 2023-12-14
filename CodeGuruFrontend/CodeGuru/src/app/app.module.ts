@@ -32,10 +32,9 @@ const routes: Routes = [
         {path: 'sql', component: SqlTemplateComponent}
     ]},
     {path: 'translate', component: TranslateComponent},
-    {path : '', redirectTo: 'languages', pathMatch:'full'}
-   ]},
-    {path: 'unittests', component: UnitTestsComponent}
-  ]},
+    {path : '', redirectTo: 'languages', pathMatch:'full'},
+    {path: 'unittests', component: UnitTestsComponent},
+   ]},     
   {path : '', redirectTo: 'home', pathMatch:'full'}
 ];
 

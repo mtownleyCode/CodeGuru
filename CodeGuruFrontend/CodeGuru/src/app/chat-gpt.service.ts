@@ -15,11 +15,11 @@ export class ChatGPTService {
   constructor(private http:HttpClient) { }
 
   GetAnswer(chatGpt: chatGpt, urlToUse: string):Observable<chatGpt>{
-    if (urlToUse === 'chatGpt'){
+    if (urlToUse === 'newchatGpturl'){
       this.baseUrl = this.secret.chatGptUrl
     }
     else{
-      this.baseUrl = this.secret.newChatGpt
+      this.baseUrl = this.secret.newChatGptUrl
     }
     this.baseUrl = this.baseUrl + chatGpt;
     console.log(this.baseUrl)
