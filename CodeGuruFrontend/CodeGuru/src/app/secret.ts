@@ -5,5 +5,6 @@ export class Secret {
     keyWordsUrl: string = "https://localhost:7199/api/KeyWords";
     languagesUrl: string = "https://localhost:7199/api/Languages";
     chatGptUrl: string = "https://localhost:7199/api/ChatGptApi/getanswer?prompt=";
+    newChatGptUrl: string = "https://localhost:7199/api/NewChatGptApi/getanswer?prompt=";
     queriesUrl: string = "https://localhost:7199/api/QueryTemplates";
 }

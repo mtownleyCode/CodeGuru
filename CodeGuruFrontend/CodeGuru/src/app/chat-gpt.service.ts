@@ -19,7 +19,7 @@ export class ChatGPTService {
       this.baseUrl = this.secret.chatGptUrl
     }
     else{
-      this.baseUrl = this.secret.newChatGpt
+      this.baseUrl = this.secret.newChatGptUrl
     }
     this.baseUrl = this.baseUrl + chatGpt;
     console.log(this.baseUrl)
