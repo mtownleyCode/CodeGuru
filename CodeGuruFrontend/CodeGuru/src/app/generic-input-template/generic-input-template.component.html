@@ -26,11 +26,11 @@
             </div>
         </div>
         <div class="row">
-            <textarea class="snippet">{{this.prompt}}</textarea>
+            <textarea class="snippet">{{this.chatGpt.response}}</textarea>
         </div>
         <div class="row">
             <div class="container text-center">
-                <div class="button btn btn-primary" style="width: 25%;" id="sendMessage" (click)="CopyToClipboard(this.prompt)">Copy Code
+                <div class="button btn btn-primary" style="width: 25%;" id="sendMessage" (click)="CopyToClipboard(this.chatGpt.response)">Copy Code
                 </div>
             </div>
         </div>

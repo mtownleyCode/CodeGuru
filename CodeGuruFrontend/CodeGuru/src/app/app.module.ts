@@ -16,14 +16,9 @@ import { CustomFormComponent } from './custom-form/custom-form.component';
 import { QueryTemplateSelectComponent } from './query-template-select/query-template-select.component';
 import { GenericInputTemplateComponent } from './generic-input-template/generic-input-template.component';
 import { UnitTestsComponent } from './unit-tests/unit-tests.component';
+import { TranslateComponent } from './translate/translate.component';
 
 const routes: Routes = [
-<<<<<<< HEAD
-  {path: 'home', component: HomeComponent},
-  {path: 'query', component: QueryComponent},
-  {path: 'addsnippet', component: AddSnippetComponent},
-  {path: "", redirectTo:"home", pathMatch:'full'}
-=======
   {path: 'home', component: HomeComponent,
    children: [
     {path: 'languages', component: LanguagesComponent},
@@ -35,10 +30,10 @@ const routes: Routes = [
       children:[
         {path: 'genericinputtemplate/:template/:language', component: GenericInputTemplateComponent}
     ]},
+    {path: 'translate', component: TranslateComponent},
     {path : '', redirectTo: 'languages', pathMatch:'full'}
    ]},
   {path : '', redirectTo: 'home', pathMatch:'full'}
->>>>>>> a9a9306c44ad16892f51b33384610afa7f0ac31e
 ];
 
 @NgModule({
@@ -55,7 +50,8 @@ const routes: Routes = [
     CustomFormComponent,
     QueryTemplateSelectComponent,
     GenericInputTemplateComponent,
-    UnitTestsComponent
+    UnitTestsComponent,
+    TranslateComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,9 @@
 export class Secret {
-    usersUrl: string = "https://localhost:7199/api/User";
     snippetsUrl: string = "https://localhost:7199/api/Snippets";
-    snippetStatUrl: string = "https://localhost:7199/api/SnippetStat";
+    usersUrl: string = "https://localhost:7199/api/Users";
+    snippetStatUrl: string = "https://localhost:7199/api/SnippetStats";
     keyWordsUrl: string = "https://localhost:7199/api/KeyWords";
-    chatGptUrl: string = "https://localhost:7199/api/ChatGptapi/getanswer?prompt=";
+    languagesUrl: string = "https://localhost:7199/api/Languages";
+    chatGptUrl: string = "https://localhost:7199/api/ChatGptApi/getanswer?prompt=";
+    queriesUrl: string = "https://localhost:7199/api/QueryTemplates";
 }

@@ -8,16 +8,11 @@ import { Secret } from './Secret';
   providedIn: 'root'
 })
 export class SnippetsService {
-<<<<<<< HEAD
-  secret: Secret = new Secret();
-  baseUrl : string = this.secret.snippetsUrl;
-=======
 
   snippets: Snippets[] = [];
 
   secret: Secret = new Secret();
   baseUrl : string = this.secret.snippetsUrl
->>>>>>> a9a9306c44ad16892f51b33384610afa7f0ac31e
   
   constructor(private http:HttpClient) { }
 

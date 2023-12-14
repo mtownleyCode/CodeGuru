@@ -15,8 +15,8 @@ export class QueryComponent implements OnInit{
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }
-  addQuery(){
-    this.chatGptService.GetAnswer(this.queryInput).subscribe((queryResult)=> console.log(queryResult))
-  }
+  // addQuery(){
+  //   this.chatGptService.GetAnswer(this.queryInput).subscribe((queryResult)=> console.log(queryResult))
+  // }
 
 }
