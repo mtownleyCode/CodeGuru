@@ -1,6 +1,6 @@
 ﻿namespace CodeGuruBackend.Models
 {
-    public class ChatGpt
+    public class ChatGptClass
     {
         public string? Prompt { get; set; }
 

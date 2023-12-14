@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ChatGPTService } from '../chat-gpt.service';
 import { changecode } from '../../assets/CodeEditor';
 import { chatGpt } from '../chatGpt';
+import { Secret } from '../Secret';
 
 @Component({
   selector: 'app-generic-input-template',
@@ -56,19 +57,26 @@ export class GenericInputTemplateComponent implements OnInit {
 
   GetCode(){
 
-    this.chatGpt.prompt = "give me code for a simple " + this.language + " " + this.template;
+    this.chatGpt.prompt = "give me code for a simple " + this.template + " " + this.language;
     this.inputsToInclude.forEach((input)=>{
       this.chatGpt.prompt = this.chatGpt.prompt + " " + input;
     
       }
     );
-
-    console.log(this.chatGpt.prompt)
     
-    this.chatGptService.GetAnswer(this.chatGpt).subscribe(
+    this.chatGptService.GetAnswer(this.chatGpt, 'newChatGpt').subscribe(
       (answerResult) =>{ 
-        this.chatGpt.response = answerResult.response.trim();
+        var test = answerResult.response.split("```")        
+        this.chatGpt.response =  test[1];
+        var lines = this.chatGpt.response.split('\n');
+        lines = lines.splice(2, lines.length);
+        this.chatGpt.response = ""
+        lines.forEach((line) => { 
+          this.chatGpt.response = this.chatGpt.response + line + '\n'; 
+         }
+        )
         changecode(this.chatGpt.response, this.language);
+
         
       }
     );

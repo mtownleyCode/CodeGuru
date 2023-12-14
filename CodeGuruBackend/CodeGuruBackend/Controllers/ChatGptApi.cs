@@ -12,7 +12,7 @@ namespace CodeGuruBackend.Controllers
     {
         [HttpPost]
         [Route("getanswer")]
-        public IActionResult GetResult(ChatGpt chatGpt)
+        public IActionResult GetResult(ChatGptClass chatGpt)
         {
             //your OpenAI API key
             string apiKey = Secret.APIKey;
@@ -21,7 +21,7 @@ namespace CodeGuruBackend.Controllers
             completion.Prompt = chatGpt.Prompt;
             completion.Model = "text-davinci-003";
             completion.MaxTokens = 4000;
-            completion.Temperature = 0.1;
+            completion.TopP = 0.1;            
             var result = openai.Completions.CreateCompletionAsync(completion);
             if (result != null)
             {
