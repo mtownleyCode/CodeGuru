@@ -2,7 +2,7 @@
     <div class="login">
         <div class="row logo">
             <div class="col text-center">
-                <p class="title">{{this.snippet.language}} - {{this.snippet.keyWord}}</p>
+                <p class="title">{{this.snippet.language}} - {{this.snippet.description}}</p>
             </div>
         </div>
         <div class="row">
@@ -10,7 +10,7 @@
         </div>
         <div class="row">
             <div class="container text-center">
-                <div class="button btn btn-primary" style="width: 25%;" (click)="copyToClipboard(this.snippet.snippetText)">Copy Code</div>
+                <div class="button btn btn-primary" style="width: 25%;" (click)="copyToClipboard(this.snippet.snippetText)">Copy Code</div>               
             </div>
         </div>
     </div>

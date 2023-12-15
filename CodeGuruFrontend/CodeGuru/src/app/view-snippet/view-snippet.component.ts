@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Query } from '@angular/core';
 import { Snippets } from '../snippets';
 import { SnippetsService } from '../snippets.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { changecode } from '../../assets/CodeEditor';
 
 @Component({
@@ -11,30 +11,44 @@ import { changecode } from '../../assets/CodeEditor';
 })
 export class ViewSnippetComponent implements OnInit{
 
-  snippet: Snippets = {} as Snippets;
-  snippetId: string = "";
 
-  constructor(private actRoute: ActivatedRoute, private snippetsService: SnippetsService) { }
+  tempParam: string = "";
+  snippetId: number = 0;
+
+  constructor(private actRoute: ActivatedRoute, private snippetsService: SnippetsService, private route: ActivatedRoute, private router: Router) { }
+
+  refreshPage() {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate([], { relativeTo: this.route });
+    });
+}
   
-  
+@Input()snippet: Snippets = {} as Snippets; 
+
+
+;
+
   ngOnInit(): void {
 
-    this.snippetsService.GetSnippets().subscribe(
-      (snippetsResult) =>{ 
-        this.snippetsService.snippets = snippetsResult;
-        console.log(this.snippetsService.snippets)
-        this.snippet = this.snippetsService.snippets.find((s) => s.id === 10)!
+//     let idToUse = [this.actRoute.snapshot.params['id']]
+//     this.tempParam = idToUse.toString();
+//     this.snippetId = parseInt(this.tempParam)
 
-      }
-    );
+//     console.log("here" + this.snippetId)
+// console.log(this.snippet)
 
-    let ip_snippetId = [this.actRoute.snapshot.params['id']];
-    this.snippetId = ip_snippetId.toString()
-   
+//     this.snippetsService.GetSnippets().subscribe(
+//       (snippetsResult) =>{ 
+//         this.snippetsService.snippets = snippetsResult;
+//         console.log(this.snippetsService.snippets)
+//         this.snippet = this.snippetsService.snippets.find((s) => s.id === this.snippetId)!
 
-    this.snippet = this.snippetsService.snippets.find((s) => s.id === parseInt(this.snippetId))!
+//       }
+//     );
 
   }
+
+  
 
   copyToClipboard(text){
     navigator.clipboard.writeText(text)

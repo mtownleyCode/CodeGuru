@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SnippetsService } from '../snippets.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Snippets } from '../snippets';
 
 @Component({
@@ -8,6 +8,9 @@ import { Snippets } from '../snippets';
   templateUrl: './code-select.component.html',
   styleUrls: ['./code-select.component.css']
 })
+
+
+
 
 export class CodeSelectComponent implements OnInit{
 
@@ -17,15 +20,36 @@ export class CodeSelectComponent implements OnInit{
   choosenSnippet: Snippets = {} as Snippets
   snippetId: number = -1;
   snippetLanguage: string = "";
+  snippet: Snippets= {} as Snippets ;
 
-  constructor(private actRoute: ActivatedRoute, private snippetsService: SnippetsService) { }
+  constructor(private actRoute: ActivatedRoute, private snippetsService: SnippetsService, private route: ActivatedRoute, private router: Router) { }
+
+//   refreshPage() {
+//     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+//         this.router.navigate([], { relativeTo: this.route });
+//     });
+// }
   
-  ngOnInit(): void {
+Refresh(){
 
+  console.log("snippetID#" + this.snippetId)
+
+  this.snippetsService.GetSnippets().subscribe(
+    (snippetsResult) =>{ 
+      this.snippetsService.snippets = snippetsResult;
+      console.log(this.snippetsService.snippets)
+      this.snippet = this.snippetsService.snippets.find((s) => s.id === this.snippetId)!
+      console.log(this.snippet)
+    }
+  );
+}
+
+  ngOnInit(): void {
     let ip_snippetLanguage = [this.actRoute.snapshot.params['language']]  
     this.snippetLanguage = ip_snippetLanguage.toString()
+    this.snippet.language = this.snippetLanguage
     this.typesToChoose = this.snippetsService.snippets.filter(s => s.language === this.snippetLanguage)
-
+console.log(this.snippet)
     this.distinctSnippets = 
       this.typesToChoose
       .map((snippet) => snippet.keyWord)
@@ -40,6 +64,7 @@ export class CodeSelectComponent implements OnInit{
   }
 
   SetSnippetId(id: string){
+    console.log('select ' + id)
     this.snippetId = parseInt(id);
    
   }

@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, Query } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ChatGPTService } from '../chat-gpt.service';
 import { changecode } from '../../assets/CodeEditor';
 import { chatGpt } from '../chatGpt';
+import { Secret } from '../Secret';
+import { QueryTemplate } from '../query-template';
 
 @Component({
   selector: 'app-generic-input-template',
@@ -10,7 +12,11 @@ import { chatGpt } from '../chatGpt';
   styleUrls: ['./generic-input-template.component.css']
 })
 
+
 export class GenericInputTemplateComponent implements OnInit {
+
+
+  @Input()queryTemplateChild: QueryTemplate = {} as QueryTemplate; 
 
   chatGpt: chatGpt = {} as chatGpt;
   
@@ -55,21 +61,24 @@ export class GenericInputTemplateComponent implements OnInit {
   }
 
   GetCode(){
-
-    this.chatGpt.prompt = "give me code for a simple " + this.language + " " + this.template;
+    this.chatGpt.prompt = "give me code for a simple " + this.queryTemplateChild.elementType + " " + this.queryTemplateChild.language;
     this.inputsToInclude.forEach((input)=>{
-      this.chatGpt.prompt = this.chatGpt.prompt + " " + input;
-    
+      this.chatGpt.prompt = this.chatGpt.prompt + " " + input;  
       }
     );
 
-    console.log(this.chatGpt.prompt)
-    
     this.chatGptService.GetAnswer(this.chatGpt).subscribe(
       (answerResult) =>{ 
-        this.chatGpt.response = answerResult.response.trim();
-        changecode(this.chatGpt.response, this.language);
-        
+        var test = answerResult.response.split("```")        
+        this.chatGpt.response =  test[1];
+        var lines = this.chatGpt.response.split('\n');
+        lines = lines.splice(2, lines.length);
+        this.chatGpt.response = ""
+        lines.forEach((line) => { 
+          this.chatGpt.response = this.chatGpt.response + line + '\n'; 
+         }
+        )
+        changecode(this.chatGpt.response, this.language);       
       }
     );
 

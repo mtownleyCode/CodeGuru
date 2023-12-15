@@ -6,15 +6,15 @@
                 <option value={{language.languageText}} *ngFor="let language of languages">{{language.languageText}}</option>
             </select>
         </div>
-        <div class="col text-start" style="flex-grow: 1;">
+        <div class="col text-start" style="flex-grow: 1;" *ngIf="filteredTemplates.length != 0">
             <select #templateName style="width: 130px" name="snippetSelect" (change)="SetTemplate(templateName.value)">
                 <option>Select Element</option>
                 <option *ngFor="let template of filteredTemplates" value={{template.elementType}}>{{template.elementType}}</option>
             </select>
         </div>
-        <div class="col" style="flex-grow: 2;">
-                <button class="button btn btn-primary" (click)="NavigateToCustomTemplate()">Get Template</button>
-        </div>
+        <!-- <div class="col" style="flex-grow: 2;">
+                <button class="button btn btn-primary" (click)="NavigateToCustomTemplate();Reload()">Get Template</button>
+        </div> -->
     </div>
 </div>
-<router-outlet></router-outlet>
+<app-generic-input-template [queryTemplateChild]="queryTemplateob"> </app-generic-input-template>
