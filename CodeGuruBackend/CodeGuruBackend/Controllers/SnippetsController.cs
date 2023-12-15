@@ -95,18 +95,18 @@ namespace CodeGuruBackend.Controllers
             return CreatedAtAction("GetSnippet", new { id = snippet.Id }, snippet);
         }
 
-        [HttpPost("chatgpt/save")]
-        public async Task<ActionResult<Snippet>> SaveChatGPTCode([FromBody] Snippet chatGptSnippet)
+        [HttpPost("snippet/save")]
+        public async Task<ActionResult<Snippet>> SaveSnippet([FromBody] Snippet saveSnippet)
         {
-            if (chatGptSnippet == null)
+            if (saveSnippet == null)
             {
-                return BadRequest("Invalid data from ChatGPT");
+                return BadRequest("Invalid data.");
             }
 
-            _context.Snippets.Add(chatGptSnippet);
+            _context.Snippets.Add(saveSnippet);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetSnippet", new { id = chatGptSnippet.Id }, chatGptSnippet);
+            return CreatedAtAction("GetSnippet", new { id = saveSnippet.Id }, saveSnippet);
         }
     
     

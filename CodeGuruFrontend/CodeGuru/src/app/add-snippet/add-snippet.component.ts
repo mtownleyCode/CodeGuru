@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SnippetsService } from '../snippets.service';
 import { Snippets } from '../snippets';
-
 @Component({
   selector: 'app-add-snippet',
   templateUrl: './add-snippet.component.html',
@@ -9,7 +8,9 @@ import { Snippets } from '../snippets';
 })
 export class AddSnippetComponent implements OnInit {
   snippets: Snippets[] = [];
-  newSnippet: Snippets = new Snippet();
+  newSnippet: Snippets = {} as Snippets;
+  selectedLanguage: string = '';
+  keywordOptions: string[] = [];
 
   constructor(private snippetService: SnippetsService) {}
 
@@ -26,8 +27,8 @@ export class AddSnippetComponent implements OnInit {
     );
   }
 
-  addSnippet(): void {
-    this.snippetService.AddSnippets(this.newSnippet)
+  addSnippet(): void { 
+    this.snippetService.SaveSnippet(this.newSnippet)
       .subscribe(
         (result) => {
           console.log('Snippet added successfully:', result);
@@ -37,5 +38,21 @@ export class AddSnippetComponent implements OnInit {
           console.error('Error adding snippet:', error);
         }
       );
+  }
+
+  updateKeywordOptions(): void {
+    if (this.newSnippet.language === 'HTML') {
+      this.keywordOptions = ['Form', 'Table', 'Links', 'Lists'];
+    } else if (this.newSnippet.language === 'JavaScript') {
+      this.keywordOptions = ['Edit HTML content'];
+    }else if (this.newSnippet.language === 'C#') {
+      this.keywordOptions = ['For Loops', 'Nested Loops'];
+    }else if (this.newSnippet.language === 'SQL') {
+      this.keywordOptions = ['Creating', 'Show Table', 'Primary Key', 'Foreign Key'];
+    } else if (this.newSnippet.language === 'Python') {
+      this.keywordOptions = ['Statements', 'Variables', 'Variable Type', 'Conditions'];
+    }else {
+      this.keywordOptions = []; //Reset options for other languages
+    }
   }
 }
