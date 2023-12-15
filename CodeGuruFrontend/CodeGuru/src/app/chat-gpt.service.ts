@@ -15,7 +15,7 @@ export class ChatGPTService {
   constructor(private http:HttpClient) { }
 
   GetAnswer(chatGpt: chatGpt, urlToUse: string):Observable<chatGpt>{
-    if (urlToUse === 'chatGpt'){
+    if (urlToUse === 'newchatGpturl'){
       this.baseUrl = this.secret.chatGptUrl
     }
     else{

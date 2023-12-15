@@ -37,7 +37,11 @@
             <a [routerLink]="['translate']">
               <i class="fa-regular fa-calendar-plus icons" aria-hidden="true" style="color:green; font-size: 35px;"></i>
               </a>
-              <p class="iconText hidden-mobile">Translation</p>            
+              <p class="iconText hidden-mobile">Translation</p>
+              <a [routerLink]="['addsnippet']">
+                <i class="fa-regular fa-calendar-plus icons" aria-hidden="true" style="color:green; font-size: 35px;"></i>
+                </a>
+                <p class="iconText hidden-mobile">Add Snippet</p>            
         </div>
         <div class="col postContainer" style="padding-bottom: 25px; flex-direction: column; flex-grow: 10; overflow-y: auto; height: 100vh; background-color: darkgray;">
           <router-outlet></router-outlet>          

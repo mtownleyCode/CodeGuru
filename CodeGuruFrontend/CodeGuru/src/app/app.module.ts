@@ -36,6 +36,8 @@ const routes: Routes = [
     {path: 'translate', component: TranslateComponent},
     {path : '', redirectTo: 'languages', pathMatch:'full'},
     {path: 'unittests', component: UnitTestsComponent},
+    {path: 'addsnippet', component: AddSnippetComponent}
+
    ]},     
   {path : '', redirectTo: 'home', pathMatch:'full'}
 ];
@@ -72,9 +74,7 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    [RouterModule.forRoot(routes)]
-    // [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })]
-
+    RouterModule.forRoot(routes)
   ],
   providers: [httpInceptProviders],
   bootstrap: [AppComponent]
