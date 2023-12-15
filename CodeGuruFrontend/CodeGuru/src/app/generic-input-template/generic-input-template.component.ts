@@ -68,7 +68,7 @@ export class GenericInputTemplateComponent implements OnInit {
       }
     );
 
-    this.chatGptService.GetAnswer(this.chatGpt).subscribe(
+    this.chatGptService.GetAnswer(this.chatGpt, 'newchatgpt').subscribe(
       (answerResult) =>{ 
         var test = answerResult.response.split("```")        
         this.chatGpt.response =  test[1];
