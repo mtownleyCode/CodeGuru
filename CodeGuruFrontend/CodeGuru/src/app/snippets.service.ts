@@ -25,6 +25,10 @@ export class SnippetsService {
   DeleteSnippets(snippetId: number):Observable<void>{
     return this.http.delete<void>(this.baseUrl+"/"+snippetId);
   }
+  SaveChatGPTCode(chatGptCode: string): Observable<any> {
+    // Assuming you have an endpoint for saving ChatGPT code in your API
+    return this.http.post<any>(`${this.baseUrl}/`, { code: chatGptCode });
+  }
   // EditSnippets(id: number, editSnippets: Snippets):Observable<void>{
   //   return this.http.put<void>(this.baseUrl+"/"+id, editSnippets);
   // }

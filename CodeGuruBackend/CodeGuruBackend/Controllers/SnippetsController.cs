@@ -24,10 +24,10 @@ namespace CodeGuruBackend.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Snippet>>> GetSnippets()
         {
-          if (_context.Snippets == null)
-          {
-              return NotFound();
-          }
+            if (_context.Snippets == null)
+            {
+                return NotFound();
+            }
             return await _context.Snippets.ToListAsync();
         }
 
@@ -35,10 +35,10 @@ namespace CodeGuruBackend.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Snippet>> GetSnippet(int id)
         {
-          if (_context.Snippets == null)
-          {
-              return NotFound();
-          }
+            if (_context.Snippets == null)
+            {
+                return NotFound();
+            }
             var snippet = await _context.Snippets.FindAsync(id);
 
             if (snippet == null)
@@ -85,16 +85,31 @@ namespace CodeGuruBackend.Controllers
         [HttpPost]
         public async Task<ActionResult<Snippet>> PostSnippet(Snippet snippet)
         {
-          if (_context.Snippets == null)
-          {
-              return Problem("Entity set 'CodeGuruContext.Snippets'  is null.");
-          }
+            if (_context.Snippets == null)
+            {
+                return Problem("Entity set 'CodeGuruContext.Snippets'  is null.");
+            }
             _context.Snippets.Add(snippet);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetSnippet", new { id = snippet.Id }, snippet);
         }
 
+        [HttpPost("chatgpt/save")]
+        public async Task<ActionResult<Snippet>> SaveChatGPTCode([FromBody] Snippet chatGptSnippet)
+        {
+            if (chatGptSnippet == null)
+            {
+                return BadRequest("Invalid data from ChatGPT");
+            }
+
+            _context.Snippets.Add(chatGptSnippet);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetSnippet", new { id = chatGptSnippet.Id }, chatGptSnippet);
+        }
+    
+    
         // DELETE: api/Snippets/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSnippet(int id)

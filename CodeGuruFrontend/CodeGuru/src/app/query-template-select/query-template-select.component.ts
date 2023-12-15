@@ -101,6 +101,7 @@ export class QueryTemplateSelectComponent implements OnInit{
     else if (this.language === 'Sql'){
       this.router.navigate(['./home/querytemplateselect/sql/'])
 
+
     }
 
   }

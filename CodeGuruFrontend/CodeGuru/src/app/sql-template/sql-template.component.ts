@@ -83,13 +83,11 @@ export class SqlTemplateComponent {
       }
     );
 
-    console.log(this.chatGpt.prompt)
-    this.chatGptService.GetAnswer(this.chatGpt).subscribe(
+    this.chatGptService.GetAnswer(this.chatGpt, 'chatGpt').subscribe(
       (answerResult) =>{ 
         this.chatGpt.response = answerResult.response.trim();
         changecode(this.chatGpt.response, 'mysql');
         this.columnsToInclude.length = 0;
-        console.log(this.chatGpt.response)
         
       }
     );
