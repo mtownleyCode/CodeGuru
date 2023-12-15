@@ -9,7 +9,7 @@ import { ChatGPTService } from '../chat-gpt.service';
 export class QueryComponent implements OnInit{
   @Input()
   queryInput: string = "";
-  constructor(private chatGptService: ChatGPTService){}
+  constructor(private newchatGptService: ChatGPTService){}
   
   
   ngOnInit(): void {

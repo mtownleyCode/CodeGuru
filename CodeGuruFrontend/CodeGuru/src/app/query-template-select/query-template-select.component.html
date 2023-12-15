@@ -12,9 +12,9 @@
                 <option *ngFor="let template of filteredTemplates" value={{template.elementType}}>{{template.elementType}}</option>
             </select>
         </div>
-        <div class="col" style="flex-grow: 2;">
-                <button class="button btn btn-primary" (click)="NavigateToCustomTemplate()">Get Template</button>
-        </div>
+        <!-- <div class="col" style="flex-grow: 2;">
+                <button class="button btn btn-primary" (click)="NavigateToCustomTemplate();Reload()">Get Template</button>
+        </div> -->
     </div>
 </div>
-<router-outlet></router-outlet>
+<app-generic-input-template [queryTemplateChild]="queryTemplateob"> </app-generic-input-template>

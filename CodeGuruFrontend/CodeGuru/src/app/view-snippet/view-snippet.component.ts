@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { Snippets } from '../snippets';
 import { SnippetsService } from '../snippets.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { changecode } from '../../assets/CodeEditor';
+
 
 @Component({
   selector: 'app-view-snippet',

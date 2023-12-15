@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Query } from '@angular/core';
 import { Secret } from './Secret';
 import { Observable } from 'rxjs';
 import { QueryTemplate } from './query-template';
@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class QueryTemplateService {
+
+queryTemplate: QueryTemplate[] = [];
 
   secret: Secret = new Secret();
   baseUrl: string = this.secret.queriesUrl
