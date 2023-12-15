@@ -35,6 +35,7 @@ const routes: Routes = [
     {path: 'translate', component: TranslateComponent},
     {path : '', redirectTo: 'languages', pathMatch:'full'},
     {path: 'unittests', component: UnitTestsComponent},
+    {path: 'addsnippet', component: AddSnippetComponent}
    ]},     
   {path : '', redirectTo: 'home', pathMatch:'full'}
 ];

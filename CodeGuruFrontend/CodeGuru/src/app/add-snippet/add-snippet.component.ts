@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SnippetsService } from '../snippets.service';
 import { Snippets } from '../snippets';
+import { Snippet } from '../snippet.model';
 
 @Component({
   selector: 'app-add-snippet',
@@ -9,12 +10,14 @@ import { Snippets } from '../snippets';
 })
 export class AddSnippetComponent implements OnInit {
   snippets: Snippets[] = [];
-  newSnippet: Snippets = new Snippet();
+  newSnippet: Snippets = {} as Snippets;
 
   constructor(private snippetService: SnippetsService) {}
 
   ngOnInit(): void {
     this.fetchSnippets();
+    this.newSnippet.language = "html";
+    this.newSnippet.keyWord = "test";
   }
 
   fetchSnippets(): void {
@@ -27,7 +30,7 @@ export class AddSnippetComponent implements OnInit {
   }
 
   addSnippet(): void {
-    this.snippetService.AddSnippets(this.newSnippet)
+    this.snippetService.SaveSnippet(this.newSnippet)
       .subscribe(
         (result) => {
           console.log('Snippet added successfully:', result);
