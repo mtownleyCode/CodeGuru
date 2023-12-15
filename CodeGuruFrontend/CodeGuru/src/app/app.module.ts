@@ -18,6 +18,7 @@ import { GenericInputTemplateComponent } from './generic-input-template/generic-
 import { UnitTestsComponent } from './unit-tests/unit-tests.component';
 import { TranslateComponent } from './translate/translate.component';
 import { SqlTemplateComponent } from './sql-template/sql-template.component';
+
 const routes: Routes = [
   {path: 'home', component: HomeComponent,
    children: [
@@ -61,7 +62,7 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    [RouterModule.forRoot(routes)]
+    RouterModule.forRoot(routes)
    // [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })]
 
   ],

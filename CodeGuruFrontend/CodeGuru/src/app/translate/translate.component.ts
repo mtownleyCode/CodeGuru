@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ChatGPTService } from '../chat-gpt.service';
 import { chatGpt } from '../chatGpt';
-
 @Component({
   selector: 'app-translate',
   templateUrl: './translate.component.html',
@@ -19,14 +18,11 @@ export class TranslateComponent {
   "Python",
   "C#"];
   response: string = "";
-  
   constructor (private chatGPTService: ChatGPTService) {}
   translateCode(){
     this.translateSnippet.prompt = this.userInput + "\n" + "Explain what this " + this.language + " code snippet does briefly";
-    this.chatGPTService.GetAnswer(this.translateSnippet, 'chatGpt').subscribe((translateEvent)=>
+    this.chatGPTService.GetAnswer(this.translateSnippet, '').subscribe((translateEvent)=>
      {this.translateSnippet.response = translateEvent.response; this.response = this.translateSnippet.response;
       console.log(this.translateSnippet.response); console.log(this.translateSnippet.prompt)})
-        
     }
-    
 }
