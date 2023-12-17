@@ -1,7 +1,6 @@
 ﻿using CodeGuruBackend.Models;
 using Microsoft.AspNetCore.Mvc;
 using HigLabo.OpenAI;
-using CodeGuruBackend.Models;
 
 namespace CodeGuruBackend.Controllers
 {

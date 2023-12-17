@@ -30,7 +30,7 @@
                         <div class="col text-start" style=" margin-top: 15px;">
                             <div>
                                 <p>Input Type:</p>
-                                <select #inputs style="width: 150px;" name="inputSelect" (change)="CheckInputType(inputs.value,i)">
+                                <select #inputs style="width: 150px;" name="inputSelect" (change)="CheckInputType(inputs.value, i)">
                                     <option>Select Type</option>
                                     <option #inputs *ngFor="let type of inputTypes" value={{type}}>{{type}}</option>
                                 </select>

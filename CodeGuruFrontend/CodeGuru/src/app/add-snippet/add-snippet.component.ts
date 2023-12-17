@@ -9,7 +9,7 @@ import { Snippets } from '../snippets';
 })
 export class AddSnippetComponent implements OnInit {
   snippets: Snippets[] = [];
-  newSnippet: Snippets = new Snippet();
+  newSnippet: Snippets = {} as Snippets;
 
   constructor(private snippetService: SnippetsService) {}
 

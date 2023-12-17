@@ -7,8 +7,6 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  setViewing(view: string){
-    
-  }
+  
 
 }

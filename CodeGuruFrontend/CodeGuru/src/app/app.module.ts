@@ -18,8 +18,13 @@ import { GenericInputTemplateComponent } from './generic-input-template/generic-
 import { UnitTestsComponent } from './unit-tests/unit-tests.component';
 import { TranslateComponent } from './translate/translate.component';
 import { SqlTemplateComponent } from './sql-template/sql-template.component';
+import { LoginScreenComponent } from './login-screen/login-screen.component';
+
+
 
 const routes: Routes = [
+  
+  {path : 'login', component: LoginScreenComponent},
   {path: 'home', component: HomeComponent,
    children: [
     {path: 'languages', component: LanguagesComponent},    
@@ -36,7 +41,7 @@ const routes: Routes = [
     {path : '', redirectTo: 'languages', pathMatch:'full'},
     {path: 'unittests', component: UnitTestsComponent},
    ]},     
-  {path : '', redirectTo: 'home', pathMatch:'full'}
+  {path : '', redirectTo: 'login', pathMatch:'full'}
 ];
 
 @NgModule({
@@ -55,7 +60,8 @@ const routes: Routes = [
     GenericInputTemplateComponent,
     UnitTestsComponent,
     TranslateComponent,
-    SqlTemplateComponent
+    SqlTemplateComponent,
+    LoginScreenComponent
 
   ],
   imports: [
