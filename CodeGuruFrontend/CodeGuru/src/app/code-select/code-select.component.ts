@@ -9,6 +9,9 @@ import { Snippets } from '../snippets';
   styleUrls: ['./code-select.component.css']
 })
 
+
+
+
 export class CodeSelectComponent implements OnInit{
 
   distinctSnippets: string[] = []
@@ -18,14 +21,15 @@ export class CodeSelectComponent implements OnInit{
   snippetId: number = -1;
   snippetLanguage: string = "";
   snippet: Snippets= {} as Snippets ;
+  
 
   constructor(private actRoute: ActivatedRoute, private snippetsService: SnippetsService, private route: ActivatedRoute, private router: Router) { }
 
-  refreshPage() {
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-        this.router.navigate([], { relativeTo: this.route });
-    });
-}
+//   refreshPage() {
+//     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+//         this.router.navigate([], { relativeTo: this.route });
+//     });
+// }
   
 Refresh(){
 
@@ -45,7 +49,9 @@ Refresh(){
     let ip_snippetLanguage = [this.actRoute.snapshot.params['language']]  
     this.snippetLanguage = ip_snippetLanguage.toString()
     this.snippet.language = this.snippetLanguage
+    this.snippet.language = this.snippetLanguage
     this.typesToChoose = this.snippetsService.snippets.filter(s => s.language === this.snippetLanguage)
+console.log(this.snippet)
 console.log(this.snippet)
     this.distinctSnippets = 
       this.typesToChoose
@@ -61,6 +67,7 @@ console.log(this.snippet)
   }
 
   SetSnippetId(id: string){
+    console.log('select ' + id)
     console.log('select ' + id)
     this.snippetId = parseInt(id);
    

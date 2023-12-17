@@ -19,8 +19,8 @@ import { UnitTestsComponent } from './unit-tests/unit-tests.component';
 import { TranslateComponent } from './translate/translate.component';
 import { SqlTemplateComponent } from './sql-template/sql-template.component';
 import { LoginScreenComponent } from './login-screen/login-screen.component';
-
-
+import { httpInterceptProviders } from './http-interceptors';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 const routes: Routes = [
   
@@ -40,6 +40,8 @@ const routes: Routes = [
     {path: 'translate', component: TranslateComponent},
     {path : '', redirectTo: 'languages', pathMatch:'full'},
     {path: 'unittests', component: UnitTestsComponent},
+    {path: 'addsnippet', component: AddSnippetComponent}
+
    ]},     
   {path : '', redirectTo: 'login', pathMatch:'full'}
 ];
@@ -61,7 +63,8 @@ const routes: Routes = [
     UnitTestsComponent,
     TranslateComponent,
     SqlTemplateComponent,
-    LoginScreenComponent
+    LoginScreenComponent,
+    SpinnerComponent
 
   ],
   imports: [
@@ -69,10 +72,8 @@ const routes: Routes = [
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes)
-   // [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })]
-
   ],
-  providers: [],
+  providers: [httpInterceptProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
