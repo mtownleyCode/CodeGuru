@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home/home.component';
@@ -18,10 +18,17 @@ import { GenericInputTemplateComponent } from './generic-input-template/generic-
 import { UnitTestsComponent } from './unit-tests/unit-tests.component';
 import { TranslateComponent } from './translate/translate.component';
 import { SqlTemplateComponent } from './sql-template/sql-template.component';
-import { httpInceptProviders } from './http-interceptors';
+import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { AuthenticateInterceptorService } from './authenticate-interceptor.service';
+import { AuthenticationGuard } from './auth.guard';
+import { FavoritesComponent } from './favorites/favorites.component';
+
 const routes: Routes = [
+  
+  {path : 'login', component: LoginScreenComponent},
   {path: 'home', component: HomeComponent,
+  //  canActivate: [AuthenticationGuard],
    children: [
     {path: 'languages', component: LanguagesComponent},    
     {path: 'codeselect/:language', component: CodeSelectComponent,
@@ -36,19 +43,12 @@ const routes: Routes = [
     {path: 'translate', component: TranslateComponent},
     {path : '', redirectTo: 'languages', pathMatch:'full'},
     {path: 'unittests', component: UnitTestsComponent},
-    {path: 'addsnippet', component: AddSnippetComponent}
+    {path: 'addsnippet', component: AddSnippetComponent},
+    {path: 'favorites', component: FavoritesComponent}
 
    ]},     
-  {path : '', redirectTo: 'home', pathMatch:'full'}
+  {path : '', redirectTo: 'login', pathMatch:'full'}
 ];
-
-
-
-
-
-
-
-
 
 @NgModule({
   declarations: [
@@ -67,7 +67,9 @@ const routes: Routes = [
     UnitTestsComponent,
     TranslateComponent,
     SqlTemplateComponent,
-    SpinnerComponent
+    LoginScreenComponent,
+    SpinnerComponent,
+    FavoritesComponent
 
   ],
   imports: [
@@ -76,7 +78,9 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [httpInceptProviders],
+  providers: [{provide: HTTP_INTERCEPTORS,
+               useClass: AuthenticateInterceptorService,
+               multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

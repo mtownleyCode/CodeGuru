@@ -26,6 +26,30 @@ namespace CodeGuruBackend.Controllers
             return await _context.SnippetStats.ToListAsync();
         }
 
+        //Get /favorites/5
+        [HttpPost("favorites")]
+        public async Task<ActionResult<IEnumerable<Snippet>>> GetFavorites([FromBody]int id)
+        {
+            if (_context.Snippets == null)
+            {
+                return NotFound();
+            }
+
+            List<SnippetStat> stats = _context.SnippetStats.Where(ss => ss.UserId == id).ToList();
+
+            List<Snippet> snippets = new List<Snippet>();
+
+            foreach (SnippetStat stat in stats)
+            {
+                Snippet snippetToAdd = _context.Snippets.First(s => s.Id == stat.SnippetId);
+                snippets.Add(snippetToAdd);
+            }
+
+            return snippets;
+
+
+        }
+
         // GET: api/SnippetStats/5
         [HttpGet("{id}")]
         public async Task<ActionResult<SnippetStat>> GetSnippetStat(int id)
