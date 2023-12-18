@@ -36,8 +36,8 @@
         height: 90px;
         background-image: 
         linear-gradient(to right bottom, 
-         rgba(76, 216, 255, 0.8),
-         rgba(30, 108, 217, 0.8)),
+         rgba(50, 57, 58, 0.8),
+         rgba(0, 0, 0, 0.8)),
          url("/assets/img/background.jpg");
     
     }
@@ -101,8 +101,8 @@
         height: 90px;
         background-image: 
         linear-gradient(to right bottom, 
-         rgba(76, 216, 255, 0.8),
-         rgba(30, 108, 217, 0.8)),
+        rgba(50, 57, 58, 0.8),
+         rgba(0, 0, 0, 0.8)),
          url("/assets/img/background.jpg");
          filter: drop-shadow(0 30px 10px rgba(0,0,0,0.125));    
             
@@ -166,8 +166,8 @@
           height: 90px;
           background-image: 
           linear-gradient(to right bottom, 
-           rgba(76, 216, 255, 0.8),
-           rgba(30, 108, 217, 0.8)),
+          rgba(50, 57, 58, 0.8),
+          rgba(0, 0, 0, 0.8)),
            url("/assets/img/background.jpg");
       
       }
@@ -231,8 +231,8 @@
           height: 90px;
           background-image: 
           linear-gradient(to right bottom, 
-           rgba(76, 216, 255, 0.8),
-           rgba(30, 108, 217, 0.8)),
+          rgba(50, 57, 58, 0.8),
+          rgba(0, 0, 0, 0.8)),
            url("/assets/img/background.jpg");
            filter: drop-shadow(0 30px 10px rgba(0,0,0,0.125));    
               
@@ -291,8 +291,8 @@
           height: 9vw;
           background-image: 
           linear-gradient(to right bottom, 
-              rgba(76, 216, 255, 0.8),
-              rgba(30, 108, 217, 0.8)),
+          rgba(50, 57, 58, 0.8),
+          rgba(0, 0, 0, 0.8)),
               url("/assets/img/background.jpg");
               filter: drop-shadow(0 30px 10px rgba(0,0,0,0.125));    
       

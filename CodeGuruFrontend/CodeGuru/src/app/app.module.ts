@@ -18,6 +18,8 @@ import { GenericInputTemplateComponent } from './generic-input-template/generic-
 import { UnitTestsComponent } from './unit-tests/unit-tests.component';
 import { TranslateComponent } from './translate/translate.component';
 import { SqlTemplateComponent } from './sql-template/sql-template.component';
+import { httpInceptProviders } from './http-interceptors';
+import { SpinnerComponent } from './spinner/spinner.component';
 const routes: Routes = [
   {path: 'home', component: HomeComponent,
    children: [
@@ -34,9 +36,19 @@ const routes: Routes = [
     {path: 'translate', component: TranslateComponent},
     {path : '', redirectTo: 'languages', pathMatch:'full'},
     {path: 'unittests', component: UnitTestsComponent},
+    {path: 'addsnippet', component: AddSnippetComponent}
+
    ]},     
   {path : '', redirectTo: 'home', pathMatch:'full'}
 ];
+
+
+
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -54,18 +66,17 @@ const routes: Routes = [
     GenericInputTemplateComponent,
     UnitTestsComponent,
     TranslateComponent,
-    SqlTemplateComponent
+    SqlTemplateComponent,
+    SpinnerComponent
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    [RouterModule.forRoot(routes)]
-   // [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })]
-
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [httpInceptProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
