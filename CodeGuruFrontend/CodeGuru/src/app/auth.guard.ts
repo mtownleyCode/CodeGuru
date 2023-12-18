@@ -7,8 +7,8 @@ export const AuthenticationGuard: CanActivateFn = (route, state) => {
   
   let userService = inject(UserService)
 
-  //if (userService.currentUser.firstName != "")
-  return inject(Router).createUrlTree(['/']);
-  //else return inject(Router).navigate(["home"])
+  if (userService.currentUser.firstName != "")
+    return inject(Router).createUrlTree(['/']);
+  else return inject(Router).navigate(["home"])
 
 };

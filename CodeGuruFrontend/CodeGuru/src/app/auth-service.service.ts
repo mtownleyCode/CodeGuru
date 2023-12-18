@@ -12,8 +12,8 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  Login(loginCredentials: LoginCredentials):Observable<JwtAuth> {
-    return this.http.post<JwtAuth>('https://localhost:7199/api/auth/login', loginCredentials)
+  Login(loginCredentials: LoginCredentials):Observable<User> {
+    return this.http.post<User>('https://localhost:7199/api/auth/login', loginCredentials)
   
   }
 

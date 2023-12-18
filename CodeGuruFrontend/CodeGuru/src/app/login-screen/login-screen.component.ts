@@ -36,7 +36,7 @@ export class LoginScreenComponent implements OnInit{
       theme: 'filled_blue',
       shape: 'rectangle',
       size: 'large',
-      width: 350
+      width: 150
 
     })   
 
@@ -45,10 +45,12 @@ export class LoginScreenComponent implements OnInit{
   handleLogin(response: any){
     if (response){
 
-      const payload = this.decodeToken(response.credential)     
+      const payload = this.decodeToken(response.credential)
       sessionStorage.setItem('access_token', payload.credential);
       this.loginCredentials.email = payload.email
       this.loginCredentials.password = 'google'
+
+      console.log(payload)
 
       this.userService.GetUserFromLoginInformation(this.loginCredentials).subscribe(
          (userResponse) => {
@@ -67,7 +69,6 @@ export class LoginScreenComponent implements OnInit{
                   
                   if (registerResponse === null){
                     console.log("User already has token.")                    
-                    console.log(this.userService.currentUser)
                   };
                   
                 }
@@ -76,6 +77,7 @@ export class LoginScreenComponent implements OnInit{
 
             else{
               this.userService.currentUser = userResponse;
+              this.userService.currentUser.token = response.credential
             
             }
            
@@ -95,25 +97,20 @@ export class LoginScreenComponent implements OnInit{
 
 
   Login(){       
-
-    console.log(this.loginCredentials)
+   
     this.authService.Login(this.loginCredentials).subscribe(
       (loginResult)=>{
-          console.log(loginResult)
-          sessionStorage.setItem('access_token', loginResult.token);
-          //this.userInformationService.currentUser = userResult;
-          // console.log(userResult)
-          // this.router.navigate(['/home', 'post'])
+                   
+           this.userService.currentUser = loginResult;
+           console.log('login ' + this.userService.currentUser.id)
+           this.ngZone.run(() => this.navigateToHome())
 
-       } //,
+       },
 
-      // (error) => {
-      //   console.log(error.error)
-      //   console.log("negative ghost rider")
+      (error) => {
+         alert("Incorrect Username or Password.")
 
-      // } 
-
-
+      } 
 
     )
     

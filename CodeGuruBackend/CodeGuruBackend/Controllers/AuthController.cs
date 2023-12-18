@@ -83,7 +83,7 @@ namespace CodeGuruBackend.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> GetTokenFromLogin([FromBody] LoginCredentials loginCredentials)
+        public async Task<ActionResult<User>> GetTokenFromLogin([FromBody] LoginCredentials loginCredentials)
         {
 
             if (loginCredentials == null)
@@ -97,19 +97,19 @@ namespace CodeGuruBackend.Controllers
             User foundUser = _context.Users.FirstOrDefault(u => u.Email == loginCredentials.Email && u.Password == loginCredentials.Password);
 
             if (foundUser != null)
+                foundUser.Password = "";
+
+            if (foundUser != null)
             {
-                var token = authHelper.GenerateToken(foundUser);
+                string token = authHelper.GenerateToken(foundUser);
 
-                return Ok(new RegistrationRequestResponse()
-                {
-                    Result = true,
-                    Token = token
+                foundUser.Token = token;
 
-                });
+                return foundUser;
             
             }
             
-            return Problem("Entity set 'CodeGuruContext.Users'  is null.");
+            return Problem("Entity set 'CodeGuruContext.Users' is null.");
 
 
         }

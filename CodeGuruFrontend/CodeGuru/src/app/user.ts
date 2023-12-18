@@ -1,3 +1,5 @@
+import { JwtAuth } from "./jwt-auth";
+
 export interface User {
     id: number;
     username: string;
@@ -6,5 +8,6 @@ export interface User {
     lastName: string;
     userRole: string;
     email: string;
+    token: string;
 
 }

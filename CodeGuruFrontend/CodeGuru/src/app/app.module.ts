@@ -22,12 +22,13 @@ import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { AuthenticateInterceptorService } from './authenticate-interceptor.service';
 import { AuthenticationGuard } from './auth.guard';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 const routes: Routes = [
   
   {path : 'login', component: LoginScreenComponent},
   {path: 'home', component: HomeComponent,
-   canActivate: [AuthenticationGuard],
+  //  canActivate: [AuthenticationGuard],
    children: [
     {path: 'languages', component: LanguagesComponent},    
     {path: 'codeselect/:language', component: CodeSelectComponent,
@@ -42,7 +43,8 @@ const routes: Routes = [
     {path: 'translate', component: TranslateComponent},
     {path : '', redirectTo: 'languages', pathMatch:'full'},
     {path: 'unittests', component: UnitTestsComponent},
-    {path: 'addsnippet', component: AddSnippetComponent}
+    {path: 'addsnippet', component: AddSnippetComponent},
+    {path: 'favorites', component: FavoritesComponent}
 
    ]},     
   {path : '', redirectTo: 'login', pathMatch:'full'}
@@ -66,7 +68,8 @@ const routes: Routes = [
     TranslateComponent,
     SqlTemplateComponent,
     LoginScreenComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    FavoritesComponent
 
   ],
   imports: [
