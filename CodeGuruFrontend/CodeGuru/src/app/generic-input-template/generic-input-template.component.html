@@ -22,8 +22,14 @@
             <div *ngIf="filteredNumbers.length > 0">
                 <button class="button btn btn-primary"  (click)="GetCode()">
                     Get Code
-                </button>
+                </button>                
             </div>
+            <div>
+                <p id=here>&nbsp;</p>
+    <form>
+      <input type="button" value="How to use" onclick=
+      'document.getElementById("here").innerHTML="1. Select Language & Element<br>2. Enter your desired Inputs and Get Code<br>3. Select language in compiler below<br>4. Copy and paste code<br>5. Run!"'>
+    </form>
         </div>
         <div class="row">
             <textarea class="snippet">{{this.chatGpt.response}}</textarea>
@@ -34,7 +40,7 @@
                 </div>
             </div>
         </div>
-        <iframe id="oc-editor" frameBorder="0" height="600px" src="https://onecompiler.com/embed/mysql?listenToEvents=true" width="100%">
+        <iframe id="oc-editor" frameBorder="0" height="600px" src="https://onecompiler.com/embed/?listenToEvents=true" width="100%">
         </iframe>
     </div>
 </div>
