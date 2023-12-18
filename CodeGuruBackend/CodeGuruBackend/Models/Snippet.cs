@@ -15,5 +15,5 @@ public partial class Snippet
 
     public string? KeyWord { get; set; }
 
-    public virtual ICollection<SnippetStat> SnippetStats { get; set; } = new List<SnippetStat>();
+    //public virtual ICollection<SnippetStat> SnippetStats { get; set; } = new List<SnippetStat>();
 }

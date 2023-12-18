@@ -23,14 +23,14 @@ export class LanguagesComponent implements OnInit{
     this.languagesService.GetLanguages().subscribe(
       (languagesResult) =>{ 
         this.languages = languagesResult;
-        console.log(this.languages)
+
       }
     );
 
     this.snippetService.GetSnippets().subscribe(
       (snippetsResult) =>{ 
         this.snippetService.snippets = snippetsResult;
-        console.log(this.snippetService.snippets)
+
       }
     );
 

@@ -11,7 +11,20 @@
         <div class="row">
             <div class="container text-center">
                 <div class="button btn btn-primary" style="width: 25%;" (click)="copyToClipboard(this.snippet.snippetText)">Copy Code</div>               
+                <div class="button btn btn-primary" style="width: 25%;" (click)="deleteSnippet()">Delete</div>
+                <div class="button btn btn-primary" style="width: 25%;" (click)="showEditForm()">Edit</div>
             </div>
         </div>
     </div>
-</div>
+</div>  
+    <div class="mainContainer" *ngIf="showEdit">
+        <div class="login">
+        <div clas="row">
+        <form (ngSubmit)="editSnippet()">
+        <textarea class="container" placeholder="Edited Code Here" rows="10" name="editSnippet" [(ngModel)]="editedSnippet.snippetText"></textarea>
+        <input class="btn btn-primary" type="submit" value="Update">
+        </form>
+    </div>
+    </div>
+    </div>
+

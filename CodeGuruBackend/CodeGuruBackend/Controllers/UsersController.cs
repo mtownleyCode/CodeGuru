@@ -15,6 +15,27 @@ namespace CodeGuruBackend.Controllers
             _context = context;
         }
 
+        [HttpGet("checkemailexists")]
+        public async Task<ActionResult<User>> CheckEmailExists(String email)
+        {
+            User user = new User();
+
+            user = _context.Users.FirstOrDefault(u => u.Email == email);
+
+            return user;
+        }
+
+
+        [HttpPost("login")]
+        public async Task<ActionResult<User>> GetUserFromLoginInformation(LoginCredentials loginCredentials)
+        {
+            User user = new User();
+
+            user = _context.Users.FirstOrDefault(u => u.Email == loginCredentials.Email && u.Password == loginCredentials.Password);
+
+            return user;
+        }
+
         // GET: api/Users
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()

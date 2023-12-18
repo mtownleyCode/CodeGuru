@@ -100,9 +100,9 @@ public partial class CodeGuruContext : DbContext
             entity.Property(e => e.SnippetLike).HasColumnName("snippetLike");
             entity.Property(e => e.UserId).HasColumnName("userId");
 
-            entity.HasOne(d => d.Snippet).WithMany(p => p.SnippetStats)
-                .HasForeignKey(d => d.SnippetId)
-                .HasConstraintName("FK__SnippetSt__snipp__4E88ABD4");
+            //entity.HasOne(d => d.Snippet).WithMany(p => p.SnippetStats)
+            //    .HasForeignKey(d => d.SnippetId)
+            //    .HasConstraintName("FK__SnippetSt__snipp__4E88ABD4");
 
             entity.HasOne(d => d.User).WithMany(p => p.SnippetStats)
                 .HasForeignKey(d => d.UserId)
@@ -123,13 +123,17 @@ public partial class CodeGuruContext : DbContext
             entity.Property(e => e.Password)
                 .HasMaxLength(100)
                 .HasColumnName("password");
-            entity.Property(e => e.UserLevel)
+            entity.Property(e => e.UserRole)
                 .HasMaxLength(100)
-                .HasColumnName("userLevel");
+                .HasColumnName("userRole");
             entity.Property(e => e.Username)
                 .HasMaxLength(100)
                 .HasColumnName("username");
+            entity.Property(e => e.Email)
+                .HasMaxLength(100)
+                .HasColumnName("email");
         });
+        modelBuilder.Entity<User>().Ignore("Token");
 
         OnModelCreatingPartial(modelBuilder);
     }
