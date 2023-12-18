@@ -16,7 +16,7 @@ CSS
 }
 .input.right {
     position: absolute;
-    right: 0;
+    right: 50;
 }
 .login{
     padding: 50px;
