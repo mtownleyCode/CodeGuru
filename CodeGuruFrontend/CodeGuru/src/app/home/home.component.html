@@ -20,39 +20,34 @@
     </div>
 </div>
 <div class="slh-container">
-    <div class="slh-row">
-        <div class="col text-center" style="flex-direction: column; flex-grow: 1; background-color:white; padding: 5px 5px;">
-          <a [routerLink]="['languages']">
-            <i class="fa-regular fa-calendar icons" aria-hidden="true" style="color:purple;padding-top: 25px;"></i>
-            </a>              
-            <p class="iconText hidden-mobile">Snippets</p> 
-            <a [routerLink]="['querytemplateselect']">
-              <i class="fa-brands fa-gratipay icons" aria-hidden="true" style="color:red"></i>
-            </a>              
-            <p class="iconText hidden-mobile">Query</p>
-            <a [routerLink]="['unittests']">
-              <i class="fa-brands fa-gratipay icons" aria-hidden="true" style="color:red"></i>
-            </a>
-            <p class="iconText hidden-mobile">Unit Tests</p>
-            <a [routerLink]="['translate']">
-              <i class="fa-regular fa-calendar-plus icons" aria-hidden="true" style="color:green; font-size: 35px;"></i>
-              </a>
-              <p class="iconText hidden-mobile">Translation</p>
-              <a [routerLink]="['addsnippet']">
-              <i class="fa-regular fa-calendar-plus icons" aria-hidden="true" style="color:green; font-size: 35px;"></i>
-              </a>
-              <p class="iconText hidden-mobile">Add Snippet</p> 
-              <a [routerLink]="['favorites']">
-                <i class="fa-brands fa-gratipay icons" aria-hidden="true" style="color:red; font-size: 35px;"></i>
-              </a>
-              <p class="iconText hidden-mobile">Favorites</p> 
-                         
-        </div>
-        <div class="col postContainer" style="padding-bottom: 25px; flex-direction: column; flex-grow: 10; overflow-y: auto; height: 100vh; background-color: darkgray;">
-          <router-outlet></router-outlet>          
-        </div>
-        <div class="col text-center hidden-mobile" style="flex-direction: column; flex-grow: 1; background-color:white; overflow-y: auto;">
-          
-      </div>
-    </div>    
+  <div class="slh-row">
+    <div class="col text-center" style="flex-direction: column; flex-grow: 1; background-color:whitesmoke; padding: 5px 5px;">
+      <a [routerLink]="['languages']">
+        <i class="fas fa-code" aria-hidden="true" style="color: #eeb421; font-size: 35px; padding-top: 25px;"></i>
+      </a>              
+      <p class="iconText hidden-mobile">Snippets</p> 
+      <a [routerLink]="['querytemplateselect']">
+        <i class="fas fa-database" aria-hidden="true" style="color:#eeb421; font-size: 35px"></i>
+      </a>              
+      <p class="iconText hidden-mobile">Query</p>
+      <a [routerLink]="['unittests']">
+        <i class="fas fa-cogs" aria-hidden="true" style="color:#eeb421; font-size: 35px"></i>
+      </a>
+      <p class="iconText hidden-mobile">Unit Tests</p>
+      <a [routerLink]="['translate']">
+        <i class="fas fa-exchange-alt" aria-hidden="true" style="color:#eeb421; font-size: 35px;"></i>
+      </a>
+      <p class="iconText hidden-mobile">Translation</p>
+      <a [routerLink]="['addsnippet']">
+        <i class="fas fa-plus" aria-hidden="true" style="color:#eeb421; font-size: 35px;"></i>
+      </a>
+      <p class="iconText hidden-mobile">Add Snippet</p>            
+    </div>
+    <div class="col postContainer" style="padding-bottom: 25px; flex-direction: column; flex-grow: 10; overflow-y: auto; height: 100vh; background-color: darkgray;">
+      <router-outlet></router-outlet>          
+    </div>
+    <div class="col text-center hidden-mobile" style="flex-direction: column; flex-grow: 1; background-color:white; overflow-y: auto;">
+      
+    </div>
+  </div>    
 </div>

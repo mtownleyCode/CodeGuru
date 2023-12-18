@@ -14,8 +14,11 @@ export class ViewSnippetComponent implements OnInit{
 
   tempParam: string = "";
   snippetId: number = 0;
-
-  constructor(private actRoute: ActivatedRoute, private snippetsService: SnippetsService, private route: ActivatedRoute, private router: Router) { }
+  @Input()snippet: Snippets = {} as Snippets; 
+  showEdit: boolean = false;
+  editedSnippet: Snippets = {} as Snippets;
+  
+constructor(private actRoute: ActivatedRoute, private snippetsService: SnippetsService, private route: ActivatedRoute, private router: Router) { }
 
   refreshPage() {
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
@@ -23,9 +26,6 @@ export class ViewSnippetComponent implements OnInit{
     });
 }
   
-@Input()snippet: Snippets = {} as Snippets; 
-
-;
 
   ngOnInit(): void {
 
@@ -51,6 +51,23 @@ export class ViewSnippetComponent implements OnInit{
 
   copyToClipboard(text){
     navigator.clipboard.writeText(text)
+  }
+
+  deleteSnippet(){
+    alert('Deleting this snippet');
+    this.snippetsService.DeleteSnippets(this.snippet.id).subscribe();
+    this.router.navigate(['home']);
+  }  
+  
+  showEditForm(){
+    console.log(this.showEdit);
+    this.showEdit = !this.showEdit
+  }
+
+  editSnippet(){
+    this.snippet.snippetText = this.editedSnippet.snippetText;
+    this.snippetsService.EditSnippets(this.snippet.id, this.snippet).subscribe();
+    this.router.navigate(['home']);
   }
  
   // testingeditor(){
