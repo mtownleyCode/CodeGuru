@@ -7,9 +7,7 @@ import { chatGpt } from '../chatGpt';
   styleUrls: ['./translate.component.css']
 })
 export class TranslateComponent {
-  @Input()
   userInput: string="";
-  @Input()
   language: string = "";
   translateSnippet: chatGpt = {} as chatGpt;
   languageSelect: string[] = [

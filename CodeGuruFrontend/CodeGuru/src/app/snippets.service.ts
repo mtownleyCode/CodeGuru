@@ -28,7 +28,7 @@ export class SnippetsService {
   SaveSnippet(saveSnippet: Snippets): Observable<Snippets> {
     return this.http.post<Snippets>(this.baseUrl + "/", saveSnippet );
   }
-  // EditSnippets(id: number, editSnippets: Snippets):Observable<void>{
-  //   return this.http.put<void>(this.baseUrl+"/"+id, editSnippets);
-  // }
+  EditSnippets(id: number, editSnippets: Snippets):Observable<void>{
+    return this.http.put<void>(this.baseUrl+"/"+id, editSnippets);
+  }
 }
