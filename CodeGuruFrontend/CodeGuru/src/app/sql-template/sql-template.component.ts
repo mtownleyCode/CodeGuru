@@ -11,13 +11,11 @@ import { SqlInput } from '../sql-input';
 })
 export class SqlTemplateComponent {
 
-  @Input()
+  
   chatGpt: chatGpt = {} as chatGpt;
-
-  @Input()
+  
   sqlInputs: SqlInput[] = [];
-
-  @Input()
+  
   tableName: string = "";
 
   singleSqlInput: SqlInput = {} as SqlInput

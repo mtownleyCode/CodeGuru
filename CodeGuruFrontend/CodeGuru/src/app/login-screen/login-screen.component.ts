@@ -1,6 +1,6 @@
 declare var google: any;
 
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { Secret } from '../Secret';
@@ -19,7 +19,8 @@ export class LoginScreenComponent implements OnInit{
 
   constructor(private userService: UserService, 
               private router: Router,
-              private authService: AuthService) { }
+              private authService: AuthService,
+              private ngZone:NgZone) { }
 
   ngOnInit(): void {
     let secret: Secret = new Secret();
@@ -44,9 +45,8 @@ export class LoginScreenComponent implements OnInit{
   handleLogin(response: any){
     if (response){
 
-      //localStorage.setItem('access_token', response.token);
-      const payload = this.decodeToken(response.credential)
-
+      const payload = this.decodeToken(response.credential)     
+      sessionStorage.setItem('access_token', payload.credential);
       this.loginCredentials.email = payload.email
       this.loginCredentials.password = 'google'
 
@@ -78,15 +78,15 @@ export class LoginScreenComponent implements OnInit{
               this.userService.currentUser = userResponse;
             
             }
+           
+            this.ngZone.run(() => this.navigateToHome());
 
-            if (localStorage.getItem('access_token') != null)
-              this.router.navigate(['home']);
-         }
+          }
          
       ) 
 
     }
-
+    
   }
 
   private decodeToken(token: string){
@@ -100,6 +100,7 @@ export class LoginScreenComponent implements OnInit{
     this.authService.Login(this.loginCredentials).subscribe(
       (loginResult)=>{
           console.log(loginResult)
+          sessionStorage.setItem('access_token', loginResult.token);
           //this.userInformationService.currentUser = userResult;
           // console.log(userResult)
           // this.router.navigate(['/home', 'post'])
@@ -118,7 +119,15 @@ export class LoginScreenComponent implements OnInit{
     
   }
 
+  navigateToHome(){
+    
+    this.router.navigate(['home']);
+  
+  }
+
 }
+
+
 
 
   

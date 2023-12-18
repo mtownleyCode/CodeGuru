@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home/home.component';
@@ -19,13 +19,15 @@ import { UnitTestsComponent } from './unit-tests/unit-tests.component';
 import { TranslateComponent } from './translate/translate.component';
 import { SqlTemplateComponent } from './sql-template/sql-template.component';
 import { LoginScreenComponent } from './login-screen/login-screen.component';
-import { httpInterceptProviders } from './http-interceptors';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { AuthenticateInterceptorService } from './authenticate-interceptor.service';
+import { AuthenticationGuard } from './auth.guard';
 
 const routes: Routes = [
   
   {path : 'login', component: LoginScreenComponent},
   {path: 'home', component: HomeComponent,
+   canActivate: [AuthenticationGuard],
    children: [
     {path: 'languages', component: LanguagesComponent},    
     {path: 'codeselect/:language', component: CodeSelectComponent,
@@ -73,7 +75,9 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [httpInterceptProviders],
+  providers: [{provide: HTTP_INTERCEPTORS,
+               useClass: AuthenticateInterceptorService,
+               multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
