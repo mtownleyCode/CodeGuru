@@ -33,7 +33,7 @@ namespace CodeGuruBackend
                     ValidateIssuerSigningKey = true,
                     ValidIssuer = config["JwtSettings: Issuer"],
                     ValidAudience = config["JwtSettings: Audience"],
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Secret.bearerKey))
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Secret.APIKey))
                 };
             });
 
