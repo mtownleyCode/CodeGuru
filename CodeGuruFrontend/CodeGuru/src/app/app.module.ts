@@ -21,8 +21,8 @@ import { SqlTemplateComponent } from './sql-template/sql-template.component';
 import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { AuthenticateInterceptorService } from './authenticate-interceptor.service';
-import { AuthenticationGuard } from './auth.guard';
 import { FavoritesComponent } from './favorites/favorites.component';
+
 
 const routes: Routes = [
   
@@ -78,9 +78,11 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [{provide: HTTP_INTERCEPTORS,
+  providers: [
+              {provide: HTTP_INTERCEPTORS,
                useClass: AuthenticateInterceptorService,
-               multi: true}],
+               multi: true}
+              ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

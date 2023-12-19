@@ -2,6 +2,8 @@ import { Component, Input, OnInit} from '@angular/core';
 import { Snippets } from '../snippets';
 import { SnippetsService } from '../snippets.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from '../user.service';
+import { User } from '../user';
 
 
 @Component({
@@ -18,7 +20,11 @@ export class ViewSnippetComponent implements OnInit{
   showEdit: boolean = false;
   editedSnippet: Snippets = {} as Snippets;
   
-constructor(private actRoute: ActivatedRoute, private snippetsService: SnippetsService, private route: ActivatedRoute, private router: Router) { }
+  
+constructor(private actRoute: ActivatedRoute, private snippetsService: SnippetsService, 
+  private route: ActivatedRoute, private router: Router, private user: UserService) { }
+  setUser: User = this.user.currentUser;
+  
 
   refreshPage() {
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
@@ -28,7 +34,7 @@ constructor(private actRoute: ActivatedRoute, private snippetsService: SnippetsS
   
 
   ngOnInit(): void {
-
+    console.log(this.user.currentUser)
 //     let idToUse = [this.actRoute.snapshot.params['id']]
 //     this.tempParam = idToUse.toString();
 //     this.snippetId = parseInt(this.tempParam)
@@ -69,6 +75,7 @@ constructor(private actRoute: ActivatedRoute, private snippetsService: SnippetsS
     this.snippetsService.EditSnippets(this.snippet.id, this.snippet).subscribe();
     this.router.navigate(['home']);
   }
+
  
   // testingeditor(){
   //   console.log('here')
