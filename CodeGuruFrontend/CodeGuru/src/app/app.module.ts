@@ -66,7 +66,6 @@ const routes: Routes = [
     LoginScreenComponent,
     SpinnerComponent,
     FavoritesComponent
-
   ],
   imports: [
     BrowserModule,

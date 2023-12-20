@@ -1,6 +1,5 @@
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { UserService } from './user.service';
 import { Observable, tap } from 'rxjs';
 import { SpinnerService } from './spinner/spinner.service';
@@ -11,9 +10,9 @@ import { SpinnerService } from './spinner/spinner.service';
 
 export class AuthenticateInterceptorService implements HttpInterceptor{
   
-  constructor(private spinnerService: SpinnerService) { }
+  constructor(private spinnerService: SpinnerService,
+              private userService: UserService) { }
 
-    constructor(private userService: UserService){}
     intercept(req: HttpRequest<any>, next: HttpHandler):Observable<HttpEvent<any>>{
 
       const token = this.userService.currentUser.token;
