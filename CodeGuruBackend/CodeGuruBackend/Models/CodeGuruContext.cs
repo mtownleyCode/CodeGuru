@@ -54,7 +54,7 @@ public partial class CodeGuruContext : DbContext
             entity.Property(e => e.Image).HasMaxLength(100);
             entity.Property(e => e.LanguageText)
                 .HasMaxLength(50)
-                .HasColumnName("language");
+                .HasColumnName("languageText");
         });
 
         modelBuilder.Entity<QueryTemplate>(entity =>
