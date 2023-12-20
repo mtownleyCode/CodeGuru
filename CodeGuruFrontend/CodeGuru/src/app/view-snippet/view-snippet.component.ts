@@ -21,6 +21,7 @@ export class ViewSnippetComponent implements OnInit{
   showEdit: boolean = false;
   editedSnippet: Snippets = {} as Snippets;
   snippetStat: SnippetStat = {} as SnippetStat;
+  setUser: User = this.userService.currentUser;
   
 constructor(private snippetsService: SnippetsService,
             private route: ActivatedRoute,
@@ -37,10 +38,6 @@ constructor(private snippetsService: SnippetsService,
   
 
   ngOnInit(): void {
-    console.log(this.user.currentUser)
-//     let idToUse = [this.actRoute.snapshot.params['id']]
-//     this.tempParam = idToUse.toString();
-//     this.snippetId = parseInt(this.tempParam)
 
   }
 
@@ -96,9 +93,4 @@ constructor(private snippetsService: SnippetsService,
     this.router.navigate(['home']);
   }
 
- 
-  // testingeditor(){
-  //   console.log('here')
-  //   changecode()
-  // }
 }
