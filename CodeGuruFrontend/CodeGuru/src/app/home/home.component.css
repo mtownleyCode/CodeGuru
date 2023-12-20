@@ -36,8 +36,8 @@
         height: 90px;
         background-image: 
         linear-gradient(to right bottom, 
-         rgba(50, 57, 58, 0.8),
-         rgba(0, 0, 0, 0.8)),
+        #00879D,
+        #00889d93),
          url("/assets/img/background.jpg");
     
     }
@@ -49,7 +49,7 @@
         transform: translate(-50%, -50%);
         text-align: center;
         font-size: 5vh;
-        background-color: white;
+        background-color: rgba(0, 0, 0, 0);
         color: #777;
         font-size: 38px;
         padding-left: 30px;
@@ -101,8 +101,8 @@
         height: 90px;
         background-image: 
         linear-gradient(to right bottom, 
-        rgba(50, 57, 58, 0.8),
-         rgba(0, 0, 0, 0.8)),
+        #00879D,
+        #00889d93),
          url("/assets/img/background.jpg");
          filter: drop-shadow(0 30px 10px rgba(0,0,0,0.125));    
             
@@ -114,7 +114,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
-        background-color: white;
+        background-color: rgba(0, 0, 0, 0);
         color: #777;
         font-size: calc(18px + 3vw);
         padding-left: 8vw;
@@ -166,8 +166,8 @@
           height: 90px;
           background-image: 
           linear-gradient(to right bottom, 
-          rgba(50, 57, 58, 0.8),
-          rgba(0, 0, 0, 0.8)),
+          #00879D,
+          #00889d93),
            url("/assets/img/background.jpg");
       
       }
@@ -179,7 +179,7 @@
           transform: translate(-50%, -50%);
           text-align: center;
           font-size: 5vh;
-          background-color: white;
+          background-color: rgba(0, 0, 0, 0);
           color: #777;
           font-size: 38px;
           padding-left: 30px;
@@ -231,8 +231,8 @@
           height: 90px;
           background-image: 
           linear-gradient(to right bottom, 
-          rgba(50, 57, 58, 0.8),
-          rgba(0, 0, 0, 0.8)),
+          #00879D,
+          #00889d93),
            url("/assets/img/background.jpg");
            filter: drop-shadow(0 30px 10px rgba(0,0,0,0.125));    
               
@@ -244,7 +244,7 @@
           left: 50%;
           transform: translate(-50%, -50%);
           text-align: center;
-          background-color: white;
+          background-color: rgba(0, 0, 0, 0);
           color: #777;
           font-size: calc(18px + 3vw);
           padding-left: 8vw;
@@ -291,8 +291,8 @@
           height: 9vw;
           background-image: 
           linear-gradient(to right bottom, 
-          rgba(50, 57, 58, 0.8),
-          rgba(0, 0, 0, 0.8)),
+          #00879D,
+          #00889d93),
               url("/assets/img/background.jpg");
               filter: drop-shadow(0 30px 10px rgba(0,0,0,0.125));    
       
@@ -304,8 +304,8 @@
           left: 50%;
           transform: translate(-50%, -50%);
           text-align: center;
-          background-color: white;
-          color: #777;
+          background-color: rgba(0, 0, 0, 0);
+          color: #e1d8d8;
           font-size: calc(12px + 3vw);
           padding-left: 10vw;
           padding-right: 10vw;
