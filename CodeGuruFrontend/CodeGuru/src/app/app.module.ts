@@ -10,9 +10,7 @@ import { QueryComponent } from './query/query.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { LanguagesComponent } from './languages/languages.component';
-import { FormComponent } from './form/form.component';
 import { CodeSelectComponent } from './code-select/code-select.component';
-import { CustomFormComponent } from './custom-form/custom-form.component';
 import { QueryTemplateSelectComponent } from './query-template-select/query-template-select.component';
 import { GenericInputTemplateComponent } from './generic-input-template/generic-input-template.component';
 import { UnitTestsComponent } from './unit-tests/unit-tests.component';
@@ -59,9 +57,7 @@ const routes: Routes = [
     ViewSnippetComponent,
     QueryComponent,
     LanguagesComponent,
-    FormComponent,
     CodeSelectComponent,
-    CustomFormComponent,
     QueryTemplateSelectComponent,
     GenericInputTemplateComponent,
     UnitTestsComponent,
