@@ -83,10 +83,12 @@ export class QueryTemplateSelectComponent implements OnInit{
   SetLanguage(language: string){
     this.queryTemplateob.language= language
     this.filteredTemplates = this.queryTemplates.filter(q => q.language === language && q.elementType != "");
+    console.log(this.queryTemplates)
 
   }
 
   SetTemplate(template: string){
+    console.log(template)
     this.queryTemplateob.elementType = template;
 
   }
@@ -98,7 +100,7 @@ export class QueryTemplateSelectComponent implements OnInit{
 
     }
 
-    else if (this.language === 'Sql'){
+    else if (this.language === 'MySql'){
       this.router.navigate(['./home/querytemplateselect/sql/'])
 
 

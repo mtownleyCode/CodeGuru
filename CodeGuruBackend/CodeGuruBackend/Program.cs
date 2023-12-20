@@ -14,9 +14,6 @@ namespace CodeGuruBackend
             var builder = WebApplication.CreateBuilder(args);
             var config = builder.Configuration;
 
-            builder.Services.AddDefaultIdentity<IdentityUser>(configureOptions: configOptions => configOptions.SignIn.RequireConfirmedAccount = false)
-                .AddEntityFrameworkStores<CodeGuruContext>();
-
             // Add services to the container.
             builder.Services.AddAuthentication(opt => {
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -27,13 +24,15 @@ namespace CodeGuruBackend
                 {
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
+
                     ValidateIssuer = true,
                     ValidateAudience = true,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = config["JwtSettings: Issuer"],
-                    ValidAudience = config["JwtSettings: Audience"],
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Secret.APIKey))
+                    ValidIssuer = "https://localhost:7199",
+                    ValidAudience = "https://localhost:7199",
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Secret.bearerKey))
+
                 };
             });
 

@@ -3,6 +3,7 @@ import { chatGpt } from '../chatGpt';
 import { ChatGPTService } from '../chat-gpt.service';
 import { changecode } from '../../assets/CodeEditor';
 import { SqlInput } from '../sql-input';
+import { QueryTemplate } from '../query-template';
 
 @Component({
   selector: 'app-sql-template',
@@ -11,6 +12,7 @@ import { SqlInput } from '../sql-input';
 })
 export class SqlTemplateComponent {
 
+  @Input()queryTemplateChild: QueryTemplate = {} as QueryTemplate; 
   
   chatGpt: chatGpt = {} as chatGpt;
   
@@ -82,7 +84,7 @@ export class SqlTemplateComponent {
       }
     );
 
-    this.chatGptService.GetAnswer(this.chatGpt, 'chatGpt').subscribe(
+    this.chatGptService.GetAnswer(this.chatGpt, 'chatGpturl').subscribe(
       (answerResult) =>{ 
         this.chatGpt.response = answerResult.response.trim();
         changecode(this.chatGpt.response, 'mysql');

@@ -28,7 +28,7 @@ const routes: Routes = [
   
   {path : 'login', component: LoginScreenComponent},
   {path: 'home', component: HomeComponent,
-  //  canActivate: [AuthenticationGuard],
+   //canActivate: [AuthenticationGuard],
    children: [
     {path: 'languages', component: LanguagesComponent},    
     {path: 'codeselect/:language', component: CodeSelectComponent,

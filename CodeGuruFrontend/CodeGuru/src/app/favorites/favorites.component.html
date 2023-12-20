@@ -1,1 +1,41 @@
-<p>favorites works!</p>
+<section class="favoritesContainer">
+    <div>
+        <div class="col text-center" style="padding-top: 50px; padding-bottom: 15px;">
+            <h1>Favorites</h1>
+        </div>
+        <div class="row" style="padding-top: 20px; padding-bottom: 20px; background-color: #DBDAEA;;">
+            <div class="col text-end" style="flex-grow: 1; margin-bottom: 25px;">
+                <select #snippetType style="width: 130px"
+                    (change)="SetFavoritesToChoose(snippetType.value)">
+                    <option value="">Select Type</option>
+                    <option value={{distinctSnippet}} *ngFor="let distinctSnippet of distinctSnippets">
+                        {{distinctSnippet}}
+                    </option>
+                </select>
+            </div>
+            <div class="col text-start" style="flex-grow: 1;">
+                <select #snippetName style="width: 130px" name="snippetSelect" (change)="GetCode(snippetName.value)">
+                    <option>Select Snippet</option>
+                    <option *ngFor="let favoriteToChoose of favoritesToChoose" value={{favoriteToChoose.id}}>
+                        {{favoriteToChoose.description}}</option>
+                </select>
+            </div>
+            <table>
+                <th style="background-color: darkgrey; height: 45px; border: black solid 1px;">
+                    <div class="row">
+                    <div class="col text-start" *ngIf="currentSnippet.description !== ''">
+                        <i class="fa-solid fa-bookmark icons" style="padding: 10px; padding-left: 35px; font-size: 25px; color: #eeb421" (click)="DeleteFavorite()"></i>
+                    </div>
+                    <div class="col text-center" style="font-size: 25px;">
+                        {{currentSnippet.description}}
+                    </div>
+                    <div class="col text-end" *ngIf="currentSnippet.description !== ''" (click)="CopyToClipboard(currentSnippet.snippetText)">
+                        <i class="fa-regular fa-clipboard icons" style="padding: 10px; padding-right: 35px; font-size: 25px; color: #eeb421"></i>
+                    </div>
+                </div>
+                </th>
+            </table>
+            <textarea id="snippet" name="snippet" [(ngModel)]="currentSnippet.snippetText" disabled = "true" rows="10" cols="100"></textarea>
+        </div>
+    </div>
+</section>
