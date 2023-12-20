@@ -6,6 +6,24 @@
             </div>
         </div>
         <div class="row">
+            <table>
+                <th style="background-color: darkgrey; height: 45px; border: black solid 1px;">
+                    <div class="row">
+                    <div class="col text-start">
+                        <i class="fa-solid fa-bookmark icons" *ngIf="snippet.favorite; else notFavorite" style="padding: 10px; padding-left: 35px; font-size: 25px; color: #eeb421" (click)="RemoveDeleteFavorite()"></i>
+                        <ng-template #notFavorite>
+                            <i class="fa-solid fa-bookmark icons" style="padding: 10px; padding-left: 35px; font-size: 25px; color: black" (click)="RemoveDeleteFavorite()"></i>
+                        </ng-template>                        
+                    </div>
+                    <div class="col text-center" style="font-size: 25px;">
+                        {{snippet.description}}
+                    </div>
+                    <div class="col text-end" (click)="copyToClipboard(snippet.snippetText)">
+                        <i class="fa-regular fa-clipboard icons" style="padding: 10px; padding-right: 35px; font-size: 25px; color: black"></i>
+                    </div>
+                </div>
+                </th>
+            </table>
             <textarea class="snippet">{{this.snippet.snippetText}}</textarea>
         </div>
         <div class="row">

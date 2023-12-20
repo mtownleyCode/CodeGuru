@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { SnippetsService } from '../snippets.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Snippets } from '../snippets';
+import { SnippetStat } from '../snippet-stat';
+import { SnippetStatService } from '../snippet-stat.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-code-select',
@@ -23,7 +26,12 @@ export class CodeSelectComponent implements OnInit{
   snippet: Snippets= {} as Snippets ;
   
 
-  constructor(private actRoute: ActivatedRoute, private snippetsService: SnippetsService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private actRoute: ActivatedRoute, 
+              private snippetsService: SnippetsService,
+              private route: ActivatedRoute,
+              private router: Router,
+              private snippetStatService: SnippetStatService,
+              private userService: UserService) { }
 
 //   refreshPage() {
 //     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
@@ -36,13 +44,30 @@ Refresh(){
   console.log("snippetID#" + this.snippetId)
 
   this.snippetsService.GetSnippets().subscribe(
-    (snippetsResult) =>{ 
+    (snippetsResult) => { 
       this.snippetsService.snippets = snippetsResult;
-      console.log(this.snippetsService.snippets)
+      
       this.snippet = this.snippetsService.snippets.find((s) => s.id === this.snippetId)!
-      console.log(this.snippet)
+      
+      this.snippetStatService.GetSnippets(23).subscribe( //this.userService.currentUser.id).subscribe(
+        (snippetStatResults) =>{
+          console.log(snippetStatResults)
+          this.snippetStatService.snippetStats = snippetStatResults;
+          console.log(this.snippetStatService.snippetStats)
+          this.snippetsService.snippets.forEach((snippet) =>{
+            let snippetStat = this.snippetStatService.snippetStats.find(ss => ss.snippetId === snippet.id)
+            if (snippetStat !== undefined){
+              snippet.favorite = true;
+            }
+            
+          })
+        }
+
+      )
+
     }
   );
+  
 }
 
   ngOnInit(): void {

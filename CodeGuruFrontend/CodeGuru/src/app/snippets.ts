@@ -4,4 +4,6 @@ export interface Snippets {
     description: string;
     snippetText: string;
     keyWord: string;
+    favorite: boolean;
+    
 }

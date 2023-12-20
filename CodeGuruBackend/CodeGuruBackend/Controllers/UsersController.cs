@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CodeGuruBackend.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace CodeGuruBackend.Controllers
 {
@@ -26,7 +27,7 @@ namespace CodeGuruBackend.Controllers
         }
 
 
-        [HttpPost("login")]
+        [HttpPost("login")]       
         public async Task<ActionResult<User>> GetUserFromLoginInformation(LoginCredentials loginCredentials)
         {
             User user = new User();

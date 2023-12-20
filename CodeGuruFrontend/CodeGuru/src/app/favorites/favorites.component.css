@@ -1,0 +1,20 @@
+.favoritesContainer{
+    padding-bottom: 220px;
+    padding-left: 100px;
+    padding-right: 100px;
+    background-color: #DBDAEA;
+    height: 125%;
+}
+
+.icons{
+    
+
+}
+
+.icons:hover{    
+    transform: scale(1.125);
+    color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.9);
+    transition: all .3s ease;
+    
+}
