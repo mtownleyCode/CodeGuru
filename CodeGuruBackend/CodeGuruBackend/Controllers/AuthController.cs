@@ -1,14 +1,6 @@
 ﻿using CodeGuruBackend.Helpers;
 using CodeGuruBackend.Models;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
-using OpenAI_API.Moderation;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.AccessControl;
-using System.Security.Claims;
-using System.Text;
 
 namespace CodeGuruBackend.Controllers
 {

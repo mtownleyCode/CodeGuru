@@ -1,9 +1,8 @@
-
 <div class="loginBackground">
     <div class="login" style="margin-left: 30%;">
         <div class="row logo">
             <div class="col text-center">
-                <img src="" style="height: 150px; width: auto; background-color: transparent;">
+                <img src="/assets/img/HTML.jpg" style="height: 150px; width: auto; background-color: transparent;">
             </div>
         </div>
         <div class="row">
@@ -11,25 +10,37 @@
                 <p class="title">CodeGuru</p>
             </div>
         </div>
-        <form (ngSubmit)="Login()" class="loginFonts">
-            <div>
-                <label for="username">Username:</label>
-                <input class="username" type="text" name="username" [(ngModel)]="loginCredentials.email">
-            </div>
-            <div>
-                <label for="password">Password:</label>
-                <input class="password" type="password" name="password"[(ngModel)]="loginCredentials.password">
-            </div>
-            <div class="text-center">
-                <input type="submit" class="btn button btn-primary loginSubmit" value="Login"/>
-            </div>
-        </form>
-        <div class="row text-center">
-            <div id="google-btn"></div>
-        </div>
-        <div class="row text-center">
-            <div class="col signUp">Sign Up</div>
-            <div class="col forgotPassword">Forgot Pasword</div>
-        </div>
+        <table style="width: 80%; margin-left: 10%">
+            <tr>
+                <td>
+                    <label for="email" class="labels">Email:</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="texts" type="text" name="email" [(ngModel)]="loginCredentials.email">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="password" class="labels">Password:</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="texts" type="password" name="password" [(ngModel)]="loginCredentials.password">
+                </td>
+            </tr>
+            <tr>
+                <td class="text-center">
+                    <button class="button btn btn-primary loginSubmit" (click)="Login()">Login</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="padding-left: 27%;" id="google-btn"></div>
+                </td>
+            </tr>
+        </table> 
     </div>
 </div>

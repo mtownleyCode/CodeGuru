@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CodeGuruBackend.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace CodeGuruBackend.Controllers
 {
@@ -16,6 +18,7 @@ namespace CodeGuruBackend.Controllers
         }
 
         // GET: api/SnippetStats
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<SnippetStat>>> GetSnippetStats()
         {
@@ -27,8 +30,9 @@ namespace CodeGuruBackend.Controllers
         }
 
         //Get /favorites/5
+        //[Authorize]
         [HttpPost("favorites")]
-        public async Task<ActionResult<IEnumerable<Snippet>>> GetFavorites([FromBody]int id)
+        public async Task<ActionResult<IEnumerable<Snippet>>> GetFavorites([FromBody] int id)
         {
             if (_context.Snippets == null)
             {
@@ -52,13 +56,13 @@ namespace CodeGuruBackend.Controllers
 
         // GET: api/SnippetStats/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<SnippetStat>> GetSnippetStat(int id)
+        public async Task<ActionResult<IEnumerable<SnippetStat>>> GetSnippetStatsForUser(int id)
         {
           if (_context.SnippetStats == null)
           {
               return NotFound();
           }
-            var snippetStat = await _context.SnippetStats.FindAsync(id);
+            var snippetStat = _context.SnippetStats.Where(ss => ss.UserId == id).ToList();
 
             if (snippetStat == null)
             {
@@ -111,12 +115,12 @@ namespace CodeGuruBackend.Controllers
             _context.SnippetStats.Add(snippetStat);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetSnippetStat", new { id = snippetStat.Id }, snippetStat);
+            return Ok(); //CreatedAtAction("GetSnippetStat", new { id = snippetStat.Id }, snippetStat);
         }
 
         // DELETE: api/SnippetStats/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteSnippetStat(int id)
+        public async Task<IActionResult> DeleteSnippetStatById(int id)
         {
             if (_context.SnippetStats == null)
             {
@@ -129,6 +133,37 @@ namespace CodeGuruBackend.Controllers
             }
 
             _context.SnippetStats.Remove(snippetStat);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        // DELETE: api/SnippetStats/5
+        [HttpPost("delete")]
+        public async Task<IActionResult> DeleteSnippetStatBySnippetStat(SnippetStat snippetStat)
+        {
+            SnippetStat snippetStatToRemove = new SnippetStat();
+
+            if (_context.SnippetStats == null)
+            {
+                return NotFound();
+            }
+            
+            if (snippetStat.Id != 0)
+            {
+                snippetStatToRemove = await _context.SnippetStats.FindAsync(snippetStat.Id);
+
+                if (snippetStatToRemove == null)
+                {
+                    return NotFound();
+                }
+            }
+            else
+            {
+                snippetStatToRemove = await _context.SnippetStats.FirstOrDefaultAsync(s =>  s.UserId == snippetStat.UserId && s.SnippetId == snippetStat.SnippetId);
+            }         
+
+            _context.SnippetStats.Remove(snippetStatToRemove);
             await _context.SaveChangesAsync();
 
             return NoContent();

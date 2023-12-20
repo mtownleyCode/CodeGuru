@@ -2,13 +2,16 @@ import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { UserService } from './user.service';
 
-export const AuthenticationGuard: CanActivateFn = (route, state) => {
-  console.log('authgaurd')
-  
+export const AuthenticationGuard: CanActivateFn = (): boolean => {
+ 
   let userService = inject(UserService)
 
-  if (userService.currentUser.firstName != "")
-    return inject(Router).createUrlTree(['/']);
-  else return inject(Router).navigate(["home"])
+  console.log(userService.currentUser)
+  let isEmpty = Object.keys(userService.currentUser).length === 0 && userService.currentUser.constructor === Object
+  if (userService.currentUser === undefined || isEmpty){
+    inject(Router).navigate['login'];
+    return false;
+  }
+  return true
 
 };

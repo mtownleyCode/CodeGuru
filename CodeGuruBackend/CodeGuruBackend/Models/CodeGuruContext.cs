@@ -99,11 +99,6 @@ public partial class CodeGuruContext : DbContext
             entity.Property(e => e.SnippetId).HasColumnName("snippetId");
             entity.Property(e => e.SnippetLike).HasColumnName("snippetLike");
             entity.Property(e => e.UserId).HasColumnName("userId");
-
-            //entity.HasOne(d => d.Snippet).WithMany(p => p.SnippetStats)
-            //    .HasForeignKey(d => d.SnippetId)
-            //    .HasConstraintName("FK__SnippetSt__snipp__4E88ABD4");
-
             entity.HasOne(d => d.User).WithMany(p => p.SnippetStats)
                 .HasForeignKey(d => d.UserId)
                 .HasConstraintName("FK__SnippetSt__userI__4D94879B");

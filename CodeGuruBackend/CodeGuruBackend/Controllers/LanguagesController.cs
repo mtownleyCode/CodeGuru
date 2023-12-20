@@ -28,7 +28,8 @@ namespace CodeGuruBackend.Controllers
           {
               return NotFound();
           }
-            return await _context.Languages.ToListAsync();
+          var test = await _context.Languages.ToListAsync();
+            return test; //await _context.Languages.ToListAsync();
         }
 
         // GET: api/Languages/5

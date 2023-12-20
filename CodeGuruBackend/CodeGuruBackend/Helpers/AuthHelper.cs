@@ -1,9 +1,9 @@
-﻿using RestSharp;
-using CodeGuruBackend.Models;
+﻿using CodeGuruBackend.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
+
 
 namespace CodeGuruBackend.Helpers
 {
@@ -16,8 +16,6 @@ namespace CodeGuruBackend.Helpers
 
             var key = Encoding.ASCII.GetBytes(Secret.bearerKey);
 
-            var test = Guid.NewGuid().ToString();
-
             var tokenDescriptor = new SecurityTokenDescriptor()
             {
 
@@ -28,11 +26,12 @@ namespace CodeGuruBackend.Helpers
                     new Claim(type: JwtRegisteredClaimNames.Email, value: user.Email),
                     new Claim(type: JwtRegisteredClaimNames.GivenName, value: user.FirstName),
                     new Claim(type: JwtRegisteredClaimNames.FamilyName, value: user.LastName),
+                    new Claim(type: JwtRegisteredClaimNames.Aud, value: "https://localhost:7199"),
                     new Claim(type: JwtRegisteredClaimNames.Jti, value: Guid.NewGuid().ToString())
-                    
-                }),
 
-                Expires = DateTime.UtcNow.AddHours(1),
+                }),
+                Issuer = "https://localhost:7199",
+                Expires = DateTime.UtcNow.AddSeconds(30),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key),
                                                             SecurityAlgorithms.HmacSha512)
             };
