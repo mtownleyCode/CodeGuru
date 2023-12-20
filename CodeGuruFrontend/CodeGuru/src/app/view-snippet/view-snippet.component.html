@@ -10,9 +10,9 @@
         </div>
         <div class="row">
             <div class="container text-center">
-                <div class="button btn btn-primary" style="width: 25%;" (click)="copyToClipboard(this.snippet.snippetText)">Copy Code</div>               
-                <div class="button btn btn-primary" style="width: 25%;" (click)="deleteSnippet()">Delete</div>
-                <div class="button btn btn-primary" style="width: 25%;" (click)="showEditForm()">Edit</div>
+                <div class="button btn btn-primary" style="width: 25%;"  (click)="copyToClipboard(this.snippet.snippetText)">Copy Code</div>               
+                <div class="button btn btn-primary" style="width: 25%;" *ngIf="setUser.userRole === 'admin'" (click)="deleteSnippet()">Delete</div>
+                <div class="button btn btn-primary" style="width: 25%;" *ngIf="setUser.userRole === 'admin'" (click)="showEditForm()">Edit</div>
             </div>
         </div>
     </div>
