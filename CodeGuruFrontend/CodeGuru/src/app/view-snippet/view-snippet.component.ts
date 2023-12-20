@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SnippetStat } from '../snippet-stat';
 import { UserService } from '../user.service';
 import { SnippetStatService } from '../snippet-stat.service';
+import { User } from '../user';
 
 
 @Component({
@@ -36,8 +37,10 @@ constructor(private snippetsService: SnippetsService,
   
 
   ngOnInit(): void {
-console.log('oninit')
-
+    console.log(this.user.currentUser)
+//     let idToUse = [this.actRoute.snapshot.params['id']]
+//     this.tempParam = idToUse.toString();
+//     this.snippetId = parseInt(this.tempParam)
 
   }
 
@@ -92,6 +95,7 @@ console.log('oninit')
     this.snippetsService.EditSnippets(this.snippet.id, this.snippet).subscribe();
     this.router.navigate(['home']);
   }
+
  
   // testingeditor(){
   //   console.log('here')
