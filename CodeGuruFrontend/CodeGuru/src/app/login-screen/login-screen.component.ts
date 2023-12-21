@@ -77,8 +77,6 @@ export class LoginScreenComponent implements OnInit{
             else{
               this.userService.currentUser = userResponse;
               this.userService.currentUser.token = response.credential
-              console.log(this.userService.currentUser.id)
-            
             }
            
             this.ngZone.run(() => this.navigateToHome());
@@ -102,7 +100,6 @@ export class LoginScreenComponent implements OnInit{
       (loginResult)=>{
                    
            this.userService.currentUser = loginResult;
-           console.log(this.userService.currentUser.token)
            this.ngZone.run(() => this.navigateToHome())
 
        },
