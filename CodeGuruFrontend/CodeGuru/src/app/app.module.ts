@@ -19,6 +19,7 @@ import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { AuthenticateInterceptorService } from './authenticate-interceptor.service';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { FreeTextComponent } from './free-text/free-text.component';
 
 
 const routes: Routes = [
@@ -41,7 +42,8 @@ const routes: Routes = [
     {path : '', redirectTo: 'languages', pathMatch:'full'},
     {path: 'unittests', component: UnitTestsComponent},
     {path: 'addsnippet', component: AddSnippetComponent},
-    {path: 'favorites', component: FavoritesComponent}
+    {path: 'favorites', component: FavoritesComponent},
+    {path: 'freetext', component: FreeTextComponent}
 
    ]},     
   {path : '', redirectTo: 'login', pathMatch:'full'}
@@ -63,7 +65,8 @@ const routes: Routes = [
     SqlTemplateComponent,
     LoginScreenComponent,
     SpinnerComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    FreeTextComponent
   ],
   imports: [
     BrowserModule,
