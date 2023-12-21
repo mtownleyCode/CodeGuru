@@ -10,9 +10,7 @@ import { QueryComponent } from './query/query.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { LanguagesComponent } from './languages/languages.component';
-import { FormComponent } from './form/form.component';
 import { CodeSelectComponent } from './code-select/code-select.component';
-import { CustomFormComponent } from './custom-form/custom-form.component';
 import { QueryTemplateSelectComponent } from './query-template-select/query-template-select.component';
 import { GenericInputTemplateComponent } from './generic-input-template/generic-input-template.component';
 import { UnitTestsComponent } from './unit-tests/unit-tests.component';
@@ -28,7 +26,7 @@ const routes: Routes = [
   
   {path : 'login', component: LoginScreenComponent},
   {path: 'home', component: HomeComponent,
-  //  canActivate: [AuthenticationGuard],
+   //canActivate: [AuthenticationGuard],
    children: [
     {path: 'languages', component: LanguagesComponent},    
     {path: 'codeselect/:language', component: CodeSelectComponent,
@@ -59,9 +57,7 @@ const routes: Routes = [
     ViewSnippetComponent,
     QueryComponent,
     LanguagesComponent,
-    FormComponent,
     CodeSelectComponent,
-    CustomFormComponent,
     QueryTemplateSelectComponent,
     GenericInputTemplateComponent,
     UnitTestsComponent,
@@ -70,7 +66,6 @@ const routes: Routes = [
     LoginScreenComponent,
     SpinnerComponent,
     FavoritesComponent
-
   ],
   imports: [
     BrowserModule,

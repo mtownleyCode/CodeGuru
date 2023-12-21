@@ -10,20 +10,24 @@ import { Snippets } from './snippets';
 })
 export class SnippetStatService {
 
+  snippetStats: SnippetStat[] = [];
+
   secret: Secret = new Secret();
   baseUrl : string = this.secret.snippetStatUrl
 
   constructor(private http:HttpClient) { }
 
-  getSnippetStats(userId: number):Observable<Snippets[]>{
-    console.log('service ' + userId)
+  GetSnippets(userId: number):Observable<SnippetStat[]>{
+    return this.http.get<SnippetStat[]>(this.baseUrl + "/" + userId);
+  }
+  getFavoriteSnippets(userId: number):Observable<Snippets[]>{
     return this.http.post<Snippets[]>(this.baseUrl + '/favorites', userId);
   }
-  AddSnippetStat(newSnippetStat: SnippetStat):Observable<void>{
-    return this.http.post<void>(this.baseUrl, newSnippetStat)
+  AddSnippetStat(newSnippetStat: SnippetStat):Observable<SnippetStat>{
+    return this.http.post<SnippetStat>(this.baseUrl, newSnippetStat)
   }
-  DeleteSnippetStat(snippetStatId: number):Observable<void>{
-    return this.http.delete<void>(this.baseUrl+"/"+snippetStatId);
+  DeleteSnippetStat(snippetStat: SnippetStat):Observable<void>{
+    return this.http.post<void>(this.baseUrl + "/delete", snippetStat);
   }
   EditSnippetStat(snippetStatID: number, editSnippetStat: SnippetStat):Observable<void>{
     return this.http.put<void>(this.baseUrl+"/"+snippetStatID, editSnippetStat);

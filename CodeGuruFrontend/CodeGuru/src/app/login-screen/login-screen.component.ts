@@ -38,6 +38,7 @@ export class LoginScreenComponent implements OnInit{
       size: 'large',
       width: 150
 
+
     })   
 
   }
@@ -49,8 +50,6 @@ export class LoginScreenComponent implements OnInit{
       sessionStorage.setItem('access_token', payload.credential);
       this.loginCredentials.email = payload.email
       this.loginCredentials.password = 'google'
-
-      console.log(payload)
 
       this.userService.GetUserFromLoginInformation(this.loginCredentials).subscribe(
          (userResponse) => {
@@ -78,6 +77,7 @@ export class LoginScreenComponent implements OnInit{
             else{
               this.userService.currentUser = userResponse;
               this.userService.currentUser.token = response.credential
+              console.log(this.userService.currentUser.id)
             
             }
            
@@ -102,14 +102,18 @@ export class LoginScreenComponent implements OnInit{
       (loginResult)=>{
                    
            this.userService.currentUser = loginResult;
-           console.log('login ' + this.userService.currentUser.id)
+           console.log(this.userService.currentUser.token)
            this.ngZone.run(() => this.navigateToHome())
 
        },
 
       (error) => {
-         alert("Incorrect Username or Password.")
-
+        if (error.status === 400)
+          alert("Incorrect Username or Password.")
+        else
+          alert("Something went wrong. Please try again.")
+        this.loginCredentials.email = "";
+        this.loginCredentials.password = "";
       } 
 
     )
