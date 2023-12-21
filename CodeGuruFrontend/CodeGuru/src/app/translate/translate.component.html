@@ -3,21 +3,23 @@
         <div class="container">
             <div class="child">
                 <form (ngSubmit)="translateCode()">
+                    <div class="col text-center">
+                        <select name="language" style="margin: 25px;" [(ngModel)]="language">
+                            <option value="" disabled selected>Choose Language</option>
+                            <option *ngFor="let l of languageSelect" value={{l}}>{{l}}</option>
+                        </select>
+                    </div>
                     <textarea rows="10" cols="100" name="query" [(ngModel)]="userInput"
                         placeholder="Paste Code Here"></textarea>
                     <div class="submitContainer">
-                        <div class="submitChild">
-                            <select name="language" [(ngModel)]="language">
-                                <option value="" disabled selected>Choose Language</option>
-                                <option *ngFor="let l of languageSelect" value={{l}}>{{l}}</option>
-                            </select>
-                            <input type="submit" value="Translate Code">
+                        <div class="col text-center">                            
+                            <input type="submit" class="button btn btn-primary" style="width: 25%; margin: 20px" value="Translate Code">
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-        <h2 style="text-align: center;">Translation</h2>
+        <h2 style="text-align: center; margin-top: 15px;">Translation</h2>
         <div class="container">
             <div class="child">
                 <textarea rows="10" cols="100">{{response}}</textarea>

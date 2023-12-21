@@ -10,7 +10,7 @@
                 <th style="background-color: darkgrey; height: 45px; border: black solid 1px;">
                     <div class="row">
                     <div class="col text-start">
-                        <i class="fa-solid fa-bookmark icons" *ngIf="snippet.favorite; else notFavorite" style="padding: 10px; padding-left: 35px; font-size: 25px; color: #eeb421" (click)="RemoveDeleteFavorite()"></i>
+                        <i class="fa-solid fa-bookmark icons" *ngIf="snippet.favorite; else notFavorite" style="padding: 10px; padding-left: 35px; font-size: 25px; color: #00879D" (click)="RemoveDeleteFavorite()"></i>
                         <ng-template #notFavorite>
                             <i class="fa-solid fa-bookmark icons" style="padding: 10px; padding-left: 35px; font-size: 25px; color: black" (click)="RemoveDeleteFavorite()"></i>
                         </ng-template>                        
@@ -19,7 +19,7 @@
                         {{snippet.description}}
                     </div>
                     <div class="col text-end" (click)="copyToClipboard(snippet.snippetText)">
-                        <i class="fa-regular fa-clipboard icons" style="padding: 10px; padding-right: 35px; font-size: 25px; color: black"></i>
+                        <i class="fa-regular fa-clipboard icons" style="padding: 10px; padding-right: 35px; font-size: 25px; color: #00879D"></i>
                     </div>
                 </div>
                 </th>
@@ -28,8 +28,8 @@
         </div>
         <div class="row">
             <div class="container text-center">
-                <div class="button btn btn-primary" style="width: 25%;"  (click)="copyToClipboard(this.snippet.snippetText)">Copy Code</div>               
-                <div class="button btn btn-primary" style="width: 25%;" *ngIf="setUser.userRole === 'admin'" (click)="deleteSnippet()">Delete</div>
+                <div class="button btn btn-primary" style="width: 25%;" (click)="copyToClipboard(this.snippet.snippetText)">Copy Code</div>               
+                <div class="button btn btn-primary" style="width: 25%; margin: 50px" *ngIf="setUser.userRole === 'admin'" (click)="deleteSnippet()">Delete</div>
                 <div class="button btn btn-primary" style="width: 25%;" *ngIf="setUser.userRole === 'admin'" (click)="showEditForm()">Edit</div>
             </div>
         </div>

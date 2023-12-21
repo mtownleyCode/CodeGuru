@@ -85,8 +85,6 @@ Refresh(){
   SetSnippetId(id: string){
     this.snippetId = parseInt(id);
    
-  }
-
- 
+  } 
 
 }

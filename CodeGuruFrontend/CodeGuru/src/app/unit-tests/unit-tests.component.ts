@@ -39,6 +39,7 @@ export class UnitTestsComponent implements OnInit{
 
   GetUnitTest(){
 
+    this.chatGpt.prompt = "";
     this.chatGpt.prompt = "I need unit tests for " + this.userPrompt + 'in' + this.language
 
     console.log(this.chatGpt.prompt)

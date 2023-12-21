@@ -35,7 +35,6 @@ export class AddSnippetComponent implements OnInit {
     this.languagesService.GetLanguages().subscribe(
       (languagesResult) => {
         this.languages = languagesResult;
-        console.log(this.languages);
       }
     );
   }

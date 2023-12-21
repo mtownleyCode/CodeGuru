@@ -1,6 +1,6 @@
 <div>
     <div class="row" style="padding-top: 20px; padding-bottom: 20px; background-color: #DBDAEA;;">
-        <div class="col text-end" style="flex-grow: 2;">
+        <div class="col text-end" style="flex-grow: 1;">
             <select #language style="margin-left: 50%; width: 140px" (change)="SetLanguage(language.value)">
                 <option value="">Select Language</option>
                 <option value={{language.languageText}} *ngFor="let language of languages">{{language.languageText}}</option>

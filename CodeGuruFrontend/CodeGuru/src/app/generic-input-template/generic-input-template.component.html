@@ -20,14 +20,14 @@
                 </p>
             </div>
             <div *ngIf="filteredNumbers.length > 0">
-                <button class="button btn btn-primary"  (click)="GetCode()">
+                <button class="button btn btn-primary" style="margin: 20px; width: 25%" (click)="GetCode()">
                     Get Code
                 </button>                
             </div>
             <div>
                 <p id=here>&nbsp;</p>
     <form>
-      <input type="button" value="How to use" onclick=
+      <input type="button" value="How to use" class="button btn btn-primary" style="margin: 10px; width: 25%" onclick=
       'document.getElementById("here").innerHTML="1. Select Language & Element<br>2. Enter your desired Inputs and Get Code<br>3. Select language in compiler below<br>4. Copy and paste code<br>5. Run!"'>
     </form>
         </div>
@@ -36,7 +36,7 @@
         </div>
         <div class="row">
             <div class="container text-center">
-                <div class="button btn btn-primary" style="width: 25%;" id="sendMessage" (click)="CopyToClipboard(this.chatGpt.response)">Copy Code
+                <div class="button btn btn-primary" style="width: 25%; margin: 25px" id="sendMessage" (click)="CopyToClipboard(this.chatGpt.response)">Copy Code
                 </div>
             </div>
         </div>
