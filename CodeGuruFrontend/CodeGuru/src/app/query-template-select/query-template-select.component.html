@@ -1,18 +1,22 @@
 <div>
     <div class="row" style="padding-top: 20px; padding-bottom: 20px; background-color: #DBDAEA;;">
-        <div class="col text-end" style="flex-grow: 2;">
-            <select #language style="margin-left: 50%; width: 130px" (change)="SetLanguage(language.value)">
+        <div class="col text-end" style="flex-grow: 1;">
+            <select #language style="margin-left: 50%; width: 140px" (change)="SetLanguage(language.value)">
                 <option value="">Select Language</option>
                 <option value={{language.languageText}} *ngFor="let language of languages">{{language.languageText}}</option>
+                
             </select>
         </div>
         <div class="col text-start" style="flex-grow: 1;" *ngIf="filteredTemplates.length != 0">
             <select #templateName style="width: 130px" name="snippetSelect" (change)="SetTemplate(templateName.value)">
                 <option>Select Element</option>
                 <option *ngFor="let template of filteredTemplates" value={{template.elementType}}>{{template.elementType}}</option>
+                <option value="freetext">Free Text</option>
             </select>
         </div>
     </div>
 </div>
 <app-sql-template [queryTemplateChild]="queryTemplateob" *ngIf="this.navRoute === 'sql'"></app-sql-template>
 <app-generic-input-template [queryTemplateChild]="queryTemplateob" *ngIf="this.navRoute === 'generic'"></app-generic-input-template>
+<app-class-template [queryTemplateChild]="queryTemplateob" *ngIf="this.navRoute === 'Class'"></app-class-template>
+<app-free-text [queryTemplateChild]="queryTemplateob" *ngIf="this.navRoute === 'freetext'"></app-free-text>

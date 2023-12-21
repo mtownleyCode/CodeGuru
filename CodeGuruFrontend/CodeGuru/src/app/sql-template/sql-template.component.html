@@ -24,13 +24,13 @@
                         <div class="col text-start" style="flex-grow: 2; margin-top: 15px;">
                             <div>
                                 <p>Name #{{i + 1}}:</p>
-                                <input type="text" name="name" style="width: 100%;" [(ngModel)]="sqlInputs[i].columnName">
+                                <input type="text" name="name" style="width: 100%;" #name (change)="SetName(name.value, i)">
                             </div>  
                         </div>
                         <div class="col text-start" style=" margin-top: 15px;">
                             <div>
                                 <p>Input Type:</p>
-                                <select #inputs style="width: 150px;" name="inputSelect" (change)="CheckInputType(inputs.value, i)">
+                                <select #inputs style="width: 150px;" name="inputSelect" (change)="SetInputType(inputs.value, i)">
                                     <option>Select Type</option>
                                     <option #inputs *ngFor="let type of inputTypes" value={{type}}>{{type}}</option>
                                 </select>
@@ -38,15 +38,15 @@
                         </div>
                         <div class="col text-start" *ngIf="charactersNeeded"  style=" margin-top: 15px;">
                             <div>
-                                <p># of Characters:</p>
-                                <input #input type="number" name="name" style="width: 75px;" [(ngModel)]="sqlInputs[i].numberofChars">
+                                <p *ngIf="sqlInputs[i].inputType === 'nvarchar'"># of Characters:</p>
+                                <input *ngIf="sqlInputs[i].inputType === 'nvarchar'" name="numCharacters" style="width: 75px;" #characters (change)="SetNumberOfCharacters(characters.value, i)">
                             </div>  
                         </div>
                     </div>             
                 </div>                
-            </div>
+            </div> 
             <div *ngIf="filteredColumns.length > 0">
-                <button class="button btn btn-primary" (click)="GetCode(this.tableName)" style="margin: 25px">
+                <button class="button btn btn-primary" (click)="GetCode(this.tableName)" style="margin: 25px; width: 25%">
                     Get Code
                 </button>
             </div>
@@ -56,7 +56,7 @@
         </div>
         <div class="row">
             <div class="container text-center">
-                <div class="button btn btn-primary" style="width: 25%;" id="sendMessage" (click)="CopyToClipboard(this.chatGpt.response)">Copy Code
+                <div class="button btn btn-primary" style="width: 25%; margin: 25px;" id="sendMessage" (click)="CopyToClipboard(this.chatGpt.response)">Copy Code
                 </div>
             </div>
         </div>

@@ -39,7 +39,6 @@ export class FavoritesComponent implements OnInit {
     this.snippetStatService.GetSnippets(this.userService.currentUser.id).subscribe(
       (snippetStatResults) => {
         this.snippetStats = snippetStatResults;
-        console.log(this.snippetStats)
       }
 
     )
@@ -54,9 +53,7 @@ export class FavoritesComponent implements OnInit {
   GetCode(snippetIndex: string){
     console.log(snippetIndex)
     if (snippetIndex === "Select Snippet"){
-      //this.currentSnippet.description = "";
-      //this.currentSnippet.snippetText = "";
-      
+     
     }
     this.currentSnippet = this.favoritesToChoose.find(f => f.id === parseInt(snippetIndex))!
 

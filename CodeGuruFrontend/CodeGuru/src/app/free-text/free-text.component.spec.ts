@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QueryComponent } from './query.component';
+import { FreeTextComponent } from './free-text.component';
 
-describe('QueryComponent', () => {
-  let component: QueryComponent;
-  let fixture: ComponentFixture<QueryComponent>;
+describe('FreeTextComponent', () => {
+  let component: FreeTextComponent;
+  let fixture: ComponentFixture<FreeTextComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [QueryComponent]
+      declarations: [FreeTextComponent]
     });
-    fixture = TestBed.createComponent(QueryComponent);
+    fixture = TestBed.createComponent(FreeTextComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

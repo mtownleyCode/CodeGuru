@@ -6,7 +6,6 @@ import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home/home.component';
 import { AddSnippetComponent } from './add-snippet/add-snippet.component';
 import { ViewSnippetComponent } from './view-snippet/view-snippet.component';
-import { QueryComponent } from './query/query.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { LanguagesComponent } from './languages/languages.component';
@@ -20,6 +19,8 @@ import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { AuthenticateInterceptorService } from './authenticate-interceptor.service';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { ClassTemplateComponent } from './class-template/class-template.component';
+import { FreeTextComponent } from './free-text/free-text.component';
 
 
 const routes: Routes = [
@@ -42,7 +43,8 @@ const routes: Routes = [
     {path : '', redirectTo: 'languages', pathMatch:'full'},
     {path: 'unittests', component: UnitTestsComponent},
     {path: 'addsnippet', component: AddSnippetComponent},
-    {path: 'favorites', component: FavoritesComponent}
+    {path: 'favorites', component: FavoritesComponent},
+    {path: 'freetext', component: FreeTextComponent}
 
    ]},     
   {path : '', redirectTo: 'login', pathMatch:'full'}
@@ -55,7 +57,6 @@ const routes: Routes = [
     HomeComponent,
     AddSnippetComponent,
     ViewSnippetComponent,
-    QueryComponent,
     LanguagesComponent,
     CodeSelectComponent,
     QueryTemplateSelectComponent,
@@ -65,7 +66,9 @@ const routes: Routes = [
     SqlTemplateComponent,
     LoginScreenComponent,
     SpinnerComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    ClassTemplateComponent
+    FreeTextComponent
   ],
   imports: [
     BrowserModule,

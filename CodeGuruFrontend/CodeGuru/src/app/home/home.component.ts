@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit, OnDestroy{
   userService = inject(UserService)
   routing = inject(Router);
   private idleSubscription?: Subscription;
+  setUser: User = this.userService.currentUser
 
   constructor() { }
 
@@ -23,10 +24,8 @@ export class HomeComponent implements OnInit, OnDestroy{
     this.idleSubscription = this.idleWatchService.idleState.subscribe(
       (isIdle) => {
         if (isIdle){
-          //console.log('user is idle')
           this.userService.currentUser = {} as User
           alert("You have been logged out.")
-          console.log(this.userService.currentUser.email)
           this.routing.navigate(['/'])
         }
         else{

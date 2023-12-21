@@ -60,17 +60,16 @@ export class GenericInputTemplateComponent implements OnInit {
   }
 
   GetCode(){
-    this.chatGpt.prompt = "give me code for a simple " + this.queryTemplateChild.elementType + " " + this.queryTemplateChild.language;
+    this.chatGpt.prompt = "give me just code for a simple " + this.queryTemplateChild.elementType + " " + this.queryTemplateChild.language;
     this.inputsToInclude.forEach((input)=>{
-      this.chatGpt.prompt = this.chatGpt.prompt + " " + input;  
-      this.chatGpt.prompt = this.chatGpt.prompt + " " + input;  
+      this.chatGpt.prompt = this.chatGpt.prompt + ", " + input;  
       }
     );
-console.log('getCode' + this.chatGpt.prompt)
+
     this.chatGptService.GetAnswer(this.chatGpt, 'newchatGpt').subscribe(
       (answerResult) =>{ 
-        var test = answerResult.response.split("```")        
-        this.chatGpt.response =  test[1];
+        var answer = answerResult.response.split("```")
+        this.chatGpt.response =  answer[1];
         var lines = this.chatGpt.response.split('\n');
         lines = lines.splice(2, lines.length);
         this.chatGpt.response = ""
@@ -78,16 +77,6 @@ console.log('getCode' + this.chatGpt.prompt)
           this.chatGpt.response = this.chatGpt.response + line + '\n'; 
          }
         )
-        // changecode(this.chatGpt.response, this.language);       
-        // var test = answerResult.response.split("```")        
-        // this.chatGpt.response =  test[1];
-        // var lines = this.chatGpt.response.split('\n');
-        // lines = lines.splice(2, lines.length);
-        // this.chatGpt.response = ""
-        // lines.forEach((line) => { 
-        //   this.chatGpt.response = this.chatGpt.response + line + '\n'; 
-        //  }
-        // )
         changecode(this.chatGpt.response, this.language);       
       }
     );
