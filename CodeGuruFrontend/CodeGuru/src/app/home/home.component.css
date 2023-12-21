@@ -7,13 +7,11 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
-
 @media (max-width: 767px) {
     .hidden-mobile{
         display: none;
 
     }
-
     .logo{
         height: 70px; 
         width: auto; 
@@ -23,7 +21,6 @@
         border-radius: 14px;
         
     }
-
     .accountIcon{
         padding-top: 40px;
         padding-right: 6vw;
@@ -31,7 +28,6 @@
         color: lightgray
 
     }
-
     .slh-header {
         height: 90px;
         background-image: 
@@ -41,7 +37,6 @@
          url("/assets/img/background.jpg");
     
     }
-
     .slh-name {
         position: absolute;
         top: 65px;
@@ -57,46 +52,35 @@
         border-radius: 15px;
         font-family:Brush Script MT, cursive;
     }
-
     .blue-bar{
         flex-grow: 1; 
         background-color: lightblue; 
         height: 20px
     }
-
     .icons{
         padding: 15px; 
         font-size: 25px;
 
-    }
-
-    
+    }    
     .add-people-icon{
         padding-left: 20px;
     }
-
   }
-
   @media (min-width: 768px) {
-
     .logo{
         height: 70px; 
         width: auto; 
         background-color: transparent;        
         margin: 10px;
         margin-left: 4vw;
-        border-radius: 14px;
-    
+        border-radius: 14px;    
     }
-
     .accountIcon{
         padding-top: 40px;
         padding-right: 6vw;
         font-size: 35px;
         color: lightgray;
-
     }
-
     .slh-header {
         height: 90px;
         background-image: 
@@ -104,10 +88,8 @@
         #00879D,
         #00889d93),
          url("/assets/img/background.jpg");
-         filter: drop-shadow(0 30px 10px rgba(0,0,0,0.125));    
-            
+         filter: drop-shadow(0 30px 10px rgba(0,0,0,0.125));                
     }
-
     .slh-name {
         position: absolute;
         top: 65px;
@@ -120,30 +102,23 @@
         padding-left: 8vw;
         padding-right: 8vw;
         border-radius: 15px;
-        font-family:Brush Script MT, cursive;
-    }
-
+        font-family:Brush Script MT, cursive;    }
     .blue-bar{
         flex-grow: 1; 
         background-color: lightblue; 
         height: 20px
-
     }
-
     .icons{
         padding-top: 10px; 
         font-size: 30px;
 
     }
-
-  }
-  
+  }  
   @media (max-width: 767px) {
       .hidden-mobile{
           display: none;
   
-      }
-  
+      }  
       .logo{
           height: 70px; 
           width: auto; 
@@ -151,27 +126,26 @@
           margin: 10px;
           margin-left: 4vw;
           border-radius: 14px;
-          
-      }
+                }
   
       .accountIcon{
           padding-top: 40px;
           padding-right: 6vw;
           font-size: 25px;
-          color: lightgray
-  
-      }
-  
+          color: lightgray  
+      }  
       .slh-header {
           height: 90px;
           background-image: 
           linear-gradient(to right bottom, 
+
           #00879D,
           #00889d93),
            url("/assets/img/background.jpg");
       
       }
   
+
       .slh-name {
           position: absolute;
           top: 65px;
@@ -186,47 +160,35 @@
           padding-right: 30px;
           border-radius: 15px;
           font-family:Brush Script MT, cursive;
-      }
-  
+      }  
       .blue-bar{
           flex-grow: 1; 
           background-color: lightblue; 
           height: 20px
-      }
-  
+      }  
       .icons{
           padding: 15px; 
-          font-size: 25px;
-  
-      }
-  
-      
+          font-size: 25px;  
+      }      
       .add-people-icon{
           padding-left: 20px;
-      }
-  
+      }  
     }
-  
-    @media (min-width: 768px) {
-  
+      @media (min-width: 768px) {  
       .logo{
           height: 70px; 
           width: auto; 
           background-color: transparent;        
           margin: 10px;
           margin-left: 4vw;
-          border-radius: 14px;
-      
-      }
-  
+          border-radius: 14px;      
+      }  
       .accountIcon{
           padding-top: 40px;
           padding-right: 6vw;
           font-size: 35px;
-          color: lightgray;
-  
-      }
-  
+          color: lightgray;  
+      }  
       .slh-header {
           height: 90px;
           background-image: 
@@ -235,9 +197,7 @@
           #00889d93),
            url("/assets/img/background.jpg");
            filter: drop-shadow(0 30px 10px rgba(0,0,0,0.125));    
-              
-      }
-  
+                    }  
       .slh-name {
           position: absolute;
           top: 65px;
@@ -251,24 +211,18 @@
           padding-right: 8vw;
           border-radius: 15px;
           font-family:Brush Script MT, cursive;
-      }
-  
+      }  
       .blue-bar{
           flex-grow: 1; 
           background-color: lightblue; 
-          height: 20px
-  
+          height: 20px  
       }
-  
-      .icons{
+        .icons{
           padding-top: 10px; 
-          font-size: 30px;
-  
+          font-size: 30px;  
       }
-  
-    }
-  
-    @media (min-width: 1050px) {
+      }
+      @media (min-width: 1050px) {
   
       .logo{
           height: 7vw;
@@ -357,6 +311,3 @@
       display: flex;
       
   }
-  
-  
-  
