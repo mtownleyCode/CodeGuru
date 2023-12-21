@@ -8,8 +8,8 @@
       <p class="slh-name" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">CodeGuru</p>
     </div>
     <div class="col" style="flex-grow: 1;">
-      <a [routerLink]="['/user', 0]">
-        <i class="fa fa-user-circle-o accountIcon" aria-hidden="true"></i>
+      <a [routerLink]="['/login']">
+        <i class="fa fa-sign-out accountIcon" aria-hidden="true"></i>
       </a>
     </div>
   </div>
@@ -43,7 +43,7 @@
       <a [routerLink]="['addsnippet']">
         <i class="fas fa-plus" aria-hidden="true" style="color:#eeb421; font-size: 35px;"></i>
       </a>
-      <p class="iconText hidden-mobile">Add Snippet</p>
+      <p *ngIf="setUser.userRole ==='admin'" class="iconText hidden-mobile">Add Snippet</p>
       <a [routerLink]="['favorites']">
         <i class="fa-brands fa-gratipay icons" aria-hidden="true" style="color:#eeb421; font-size: 35px;"></i>
       </a>

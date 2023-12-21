@@ -1,0 +1,54 @@
+.mainContainer{    
+    padding-top: 25px;
+    padding-bottom: 220px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: darkgray;
+    background-image: 
+    linear-gradient(to right bottom, 
+     rgba(76, 216, 255, 0.8),
+     rgba(30, 108, 217, 0.8)),
+     url("/assets/img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login{
+    padding: 50px;
+    background-color: #DBDAEA;
+    border-radius: 20px;
+    border: 2px;
+    border-color: lightslategray;
+    border-style: solid;
+    height: 400 px;
+    padding-top: 25px;
+
+}
+
+.container{
+    display:block;
+    text-align: center;
+}
+
+.child{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.snippetBox{
+    height: 200px;
+    width: 400px;
+    text-align:left;
+}
+
+.submitContainer{
+    display:block;
+}
+.submitChild{
+    display: inline-block;
+    margin-left: 80%;
+    margin-right: auto;
+    text-align: right;
+}

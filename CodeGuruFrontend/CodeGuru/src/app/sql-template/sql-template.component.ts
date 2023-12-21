@@ -41,49 +41,53 @@ export class SqlTemplateComponent {
     9,
     10 ];
 
-    constructor(private chatGptService: ChatGPTService) { }
+  constructor(private chatGptService: ChatGPTService) { }
 
   GetNumberOfColoumns(columns: string){
     this.sqlInputs.length = 0;
+    
     let columnsInt: number = parseInt(columns);    
     this.filteredColumns = this.columnsSelect.filter(n => n <= columnsInt)
+    
     this.filteredColumns.forEach(()=>{
+      this.singleSqlInput = {} as SqlInput;
       this.singleSqlInput.columnName = "";
-      this.singleSqlInput.inputType = 'nvarchar';
-      this.singleSqlInput.numberofChars = 0;
+      this.singleSqlInput.inputType = 'int';
+      this.singleSqlInput.numberofChars = "";
 
       this.sqlInputs.push(this.singleSqlInput);
-      console.log(this.sqlInputs)
+      
     })
   }
 
+  SetName(name: string, index:number){    
+    this.sqlInputs[index].columnName = name;
+
+  }
     
-  CheckInputType(inputType: string, index: number){
-    console.log(index)
+  SetInputType(inputType: string, index: number){
     this.sqlInputs[index].inputType = inputType;
-    console.log(this.sqlInputs)
     
   }
 
-  // AddToList(index: number){
+  SetNumberOfCharacters(numCharacters: string, index: number){
+    this.sqlInputs[index].numberofChars = numCharacters;
 
-  //   if ((this.columnsToInclude.length) === index){
-  //     this.columnsToInclude.push(this.sqlInputs[index])
-  //   }
-  //   else {
-  //       //*****************ADD SPLICE ***************/
-  //   }
-  // }
+  }
 
   GetCode(tableName: string){
-
     this.chatGpt.prompt = "give me code for a simple MySql table named " + tableName + " columns";
     this.sqlInputs.forEach((input)=>{
-      this.chatGpt.prompt = this.chatGpt.prompt + " " + input.columnName + " " + input.inputType + " " + input.numberofChars + "insert data" + 'select all'; 
+      this.chatGpt.prompt = this.chatGpt.prompt + " " + input.columnName + " " + input.inputType;
+      if (input.inputType === "nvarchar" ) {
+        this.chatGpt.prompt = this.chatGpt.prompt + " " + input.numberofChars; 
     
+        }
       }
     );
 
+    this.chatGpt.prompt = this.chatGpt.prompt + " insert data " + "select all"
+    
     this.chatGptService.GetAnswer(this.chatGpt, 'chatGpturl').subscribe(
       (answerResult) =>{ 
         this.chatGpt.response = answerResult.response.trim();
