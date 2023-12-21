@@ -118,7 +118,7 @@ export class LoginScreenComponent implements OnInit{
   }
 
   navigateToHome(){
-    
+    console.log(this.userService.currentUser.userRole)
     this.router.navigate(['home']);
   
   }
