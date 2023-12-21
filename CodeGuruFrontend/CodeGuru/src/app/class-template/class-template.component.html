@@ -1,0 +1,53 @@
+<div class="mainContainer">
+    <div class="login">
+      <div class="row logo">
+        <div class="col text-center">
+          <p class="title">{{ queryTemplateChild.language }} - {{queryTemplateChild.elementType}}</p>
+        </div>
+      </div>
+      <div class="row text-center">
+        <p>
+          Class Name:
+          <input type="text" [(ngModel)]="className">
+        </p>
+        <div *ngFor="let prop of properties; let i = index">
+          <div class="row">
+            <div class="col text-start" style="flex-grow: 2; margin-top: 15px;">
+              <div>
+                <p>Property #{{ i + 1 }} Name:</p>
+                <input type="text" [(ngModel)]="properties[i].name">
+              </div>
+            </div>
+            <div class="col text-start" style="margin-top: 15px;">
+              <div>
+                <p>Data Type:</p>
+                <input type="text" [(ngModel)]="properties[i].dataType">
+              </div>
+            </div>
+            <div class="col text-start" style="margin-top: 15px;">
+              <div>
+                <button class="btn btn-danger" style="margin-top: 30px" (click)="removeProperty(i)">Remove</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+            <p id=here>&nbsp;</p>
+            <form>
+            <input type="button" value="How to use" onclick=
+            'document.getElementById("here").innerHTML="1. Select Language & Element<br>2. Enter your desired Inputs and Get Code<br>3. Select language in compiler below<br>4. Copy and paste code<br>5. Run!"'>
+            </form>
+        </div>
+        <div class="col text-center" style="margin-top: 15px;">
+            <button class="btn btn-primary" style="width: 25%; margin-top: 30px; margin-right: 50px; margin-bottom: 15px;"  (click)="addProperty()">Add Property</button>
+            <button class="btn btn-success" style="width: 25%; margin-top: 30px; margin-bottom: 15px;" (click)="generateCode()">Generate Code</button>
+        </div>
+        <div class="row">
+            <textarea class="snippet">{{this.chatGpt.response}}</textarea>
+        </div>
+      </div>
+      <iframe id="oc-editor" frameBorder="0" height="600px" src="https://onecompiler.com/embed/?listenToEvents=true" width="100%">
+    </iframe>
+    </div>
+  </div> 
+  

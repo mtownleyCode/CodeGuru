@@ -20,6 +20,7 @@ import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { AuthenticateInterceptorService } from './authenticate-interceptor.service';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { ClassTemplateComponent } from './class-template/class-template.component';
 
 
 const routes: Routes = [
@@ -65,7 +66,8 @@ const routes: Routes = [
     SqlTemplateComponent,
     LoginScreenComponent,
     SpinnerComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    ClassTemplateComponent
   ],
   imports: [
     BrowserModule,
