@@ -33,12 +33,7 @@ export class CodeSelectComponent implements OnInit{
               private snippetStatService: SnippetStatService,
               private userService: UserService) { }
 
-//   refreshPage() {
-//     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-//         this.router.navigate([], { relativeTo: this.route });
-//     });
-// }
-  
+
 Refresh(){
 
   console.log("snippetID#" + this.snippetId)
@@ -49,11 +44,9 @@ Refresh(){
       
       this.snippet = this.snippetsService.snippets.find((s) => s.id === this.snippetId)!
       
-      this.snippetStatService.GetSnippets(23).subscribe( //this.userService.currentUser.id).subscribe(
+      this.snippetStatService.GetSnippets(this.userService.currentUser.id).subscribe(
         (snippetStatResults) =>{
-          console.log(snippetStatResults)
           this.snippetStatService.snippetStats = snippetStatResults;
-          console.log(this.snippetStatService.snippetStats)
           this.snippetsService.snippets.forEach((snippet) =>{
             let snippetStat = this.snippetStatService.snippetStats.find(ss => ss.snippetId === snippet.id)
             if (snippetStat !== undefined){
@@ -76,8 +69,6 @@ Refresh(){
     this.snippet.language = this.snippetLanguage
     this.snippet.language = this.snippetLanguage
     this.typesToChoose = this.snippetsService.snippets.filter(s => s.language === this.snippetLanguage)
-console.log(this.snippet)
-console.log(this.snippet)
     this.distinctSnippets = 
       this.typesToChoose
       .map((snippet) => snippet.keyWord)
@@ -92,8 +83,6 @@ console.log(this.snippet)
   }
 
   SetSnippetId(id: string){
-    console.log('select ' + id)
-    console.log('select ' + id)
     this.snippetId = parseInt(id);
    
   }

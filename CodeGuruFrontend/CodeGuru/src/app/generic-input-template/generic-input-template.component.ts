@@ -60,10 +60,9 @@ export class GenericInputTemplateComponent implements OnInit {
   }
 
   GetCode(){
-    this.chatGpt.prompt = "give me code for a simple " + this.queryTemplateChild.elementType + " " + this.queryTemplateChild.language;
+    this.chatGpt.prompt = "give me just code for a simple " + this.queryTemplateChild.elementType + " " + this.queryTemplateChild.language;
     this.inputsToInclude.forEach((input)=>{
-      this.chatGpt.prompt = this.chatGpt.prompt + " " + input;  
-      this.chatGpt.prompt = this.chatGpt.prompt + " " + input;  
+      this.chatGpt.prompt = this.chatGpt.prompt + ", " + input;  
       }
     );
 

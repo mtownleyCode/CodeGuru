@@ -6,7 +6,6 @@ import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home/home.component';
 import { AddSnippetComponent } from './add-snippet/add-snippet.component';
 import { ViewSnippetComponent } from './view-snippet/view-snippet.component';
-import { QueryComponent } from './query/query.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { LanguagesComponent } from './languages/languages.component';
@@ -57,7 +56,6 @@ const routes: Routes = [
     HomeComponent,
     AddSnippetComponent,
     ViewSnippetComponent,
-    QueryComponent,
     LanguagesComponent,
     CodeSelectComponent,
     QueryTemplateSelectComponent,

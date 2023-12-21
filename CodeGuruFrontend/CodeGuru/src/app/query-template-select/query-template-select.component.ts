@@ -48,28 +48,11 @@ export class QueryTemplateSelectComponent implements OnInit{
     }
   }             
 
-              // Refresh(){
-
-              //   console.log("snippetID#" + this.snippetId)
               
-              //   this.snippetsService.GetSnippets().subscribe(
-              //     (snippetsResult) =>{ 
-              //       this.snippetsService.snippets = snippetsResult;
-              //       console.log(this.snippetsService.snippets)
-              //       this.snippet = this.snippetsService.snippets.find((s) => s.id === this.snippetId)!
-              //       console.log(this.snippet)
-              //     }
-              //   );
-              // }
-              
-
-
-
   ngOnInit(): void {
     this.queryTemplateService.GetQueryTemplates().subscribe(
       (queryTemplatesResult) =>{ 
-        this.queryTemplates = queryTemplatesResult;
-        
+        this.queryTemplates = queryTemplatesResult;  
       }
     );
 
@@ -84,13 +67,10 @@ export class QueryTemplateSelectComponent implements OnInit{
   SetLanguage(language: string){
     this.queryTemplateob.language = language
     this.filteredTemplates = this.queryTemplates.filter(q => q.language === language && q.elementType != "");
-    
   }
 
   SetTemplate(template: string){
-    console.log(template)
     this.queryTemplateob.elementType = template;
-    
     if ((this.queryTemplateob.elementType === "Form" || this.queryTemplateob.elementType === "Table") && this.queryTemplateob.language != "MYSQL" ){
       this.navRoute = "generic";
     }
@@ -107,13 +87,10 @@ export class QueryTemplateSelectComponent implements OnInit{
 
     if (this.queryTemplate === 'Form' || this.queryTemplate === 'Table'){      
       this.router.navigate(['./home/querytemplateselect/genericinputtemplate/', this.queryTemplateob.elementType, this.queryTemplateob.language])
-
     }
 
     else if (this.language === 'MySql'){
       this.router.navigate(['./home/querytemplateselect/sql/'])
-
-
     }
 
   }
