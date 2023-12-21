@@ -41,7 +41,7 @@ export class SqlTemplateComponent {
     9,
     10 ];
 
-    constructor(private chatGptService: ChatGPTService) { }
+  constructor(private chatGptService: ChatGPTService) { }
 
   GetNumberOfColoumns(columns: string){
     this.sqlInputs.length = 0;
@@ -87,8 +87,7 @@ export class SqlTemplateComponent {
     );
 
     this.chatGpt.prompt = this.chatGpt.prompt + " insert data " + "select all"
-    console.log('prompt ' + this.chatGpt.prompt)
-
+    
     this.chatGptService.GetAnswer(this.chatGpt, 'chatGpturl').subscribe(
       (answerResult) =>{ 
         this.chatGpt.response = answerResult.response.trim();
