@@ -1,7 +1,7 @@
 <div>
     <div class="row" style="padding-top: 20px; padding-bottom: 20px; background-color: #DBDAEA;;">
         <div class="col text-end" style="flex-grow: 2;">
-            <select #language style="margin-left: 50%; width: 130px" (change)="SetLanguage(language.value)">
+            <select #language style="margin-left: 50%; width: 140px" (change)="SetLanguage(language.value)">
                 <option value="">Select Language</option>
                 <option value={{language.languageText}} *ngFor="let language of languages">{{language.languageText}}</option>
             </select>
@@ -12,9 +12,6 @@
                 <option *ngFor="let template of filteredTemplates" value={{template.elementType}}>{{template.elementType}}</option>
             </select>
         </div>
-        <!-- <div class="col" style="flex-grow: 2;">
-                <button class="button btn btn-primary" (click)="NavigateToCustomTemplate();Reload()">Get Template</button>
-        </div> -->
     </div>
 </div>
 <app-sql-template [queryTemplateChild]="queryTemplateob" *ngIf="this.queryTemplateob.language === 'MYSQL'"></app-sql-template>
