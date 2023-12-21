@@ -18,4 +18,5 @@
 </div>
 <app-sql-template [queryTemplateChild]="queryTemplateob" *ngIf="this.navRoute === 'sql'"></app-sql-template>
 <app-generic-input-template [queryTemplateChild]="queryTemplateob" *ngIf="this.navRoute === 'generic'"></app-generic-input-template>
+<app-class-template [queryTemplateChild]="queryTemplateob" *ngIf="this.navRoute === 'Class'"></app-class-template>
 <app-free-text [queryTemplateChild]="queryTemplateob" *ngIf="this.navRoute === 'freetext'"></app-free-text>

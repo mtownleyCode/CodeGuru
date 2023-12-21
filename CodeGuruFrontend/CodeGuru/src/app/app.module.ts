@@ -19,6 +19,7 @@ import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { AuthenticateInterceptorService } from './authenticate-interceptor.service';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { ClassTemplateComponent } from './class-template/class-template.component';
 import { FreeTextComponent } from './free-text/free-text.component';
 
 
@@ -66,6 +67,7 @@ const routes: Routes = [
     LoginScreenComponent,
     SpinnerComponent,
     FavoritesComponent,
+    ClassTemplateComponent
     FreeTextComponent
   ],
   imports: [

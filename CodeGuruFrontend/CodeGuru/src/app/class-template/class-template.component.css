@@ -1,0 +1,41 @@
+.mainContainer{    
+    padding-top: 25px;
+    padding-bottom: 220px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: darkgray;
+    background-image: 
+    linear-gradient(to right bottom, 
+     rgba(76, 216, 255, 0.8),
+     rgba(30, 108, 217, 0.8)),
+     url("/assets/img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login{
+    padding: 50px;
+    background-color: #DBDAEA;
+    border-radius: 20px;
+    border: 2px;
+    border-color: lightslategray;
+    border-style: solid;
+    padding-top: 25px;
+
+}
+
+.title {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 60px;
+}
+
+.inputs{
+    margin-left: 15px;
+    margin-bottom: 20px;
+
+}
+
+.snippet{
+    height:200px;
+    resize: none;
+}

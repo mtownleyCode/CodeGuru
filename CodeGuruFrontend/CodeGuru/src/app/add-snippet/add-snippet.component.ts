@@ -14,7 +14,7 @@ export class AddSnippetComponent implements OnInit {
   snippets: Snippets[] = [];
   newSnippet: Snippets = {} as Snippets;
   languages: Language[] = [];
-  selectedLanguage: string = '';
+  //selectedLanguage: string = '';
   keywordOptions: string[] = [];
   constructor(private snippetService: SnippetsService, private languagesService: LanguagesService, private router: Router) {}
 
