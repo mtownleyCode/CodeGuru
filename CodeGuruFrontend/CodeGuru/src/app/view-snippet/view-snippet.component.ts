@@ -86,6 +86,4 @@ constructor(private snippetsService: SnippetsService,
     this.snippetsService.EditSnippets(this.snippet.id, this.snippet).subscribe((results)=>{this.router.navigate(['home/languages']);});
     this.router.navigate(['home/languages']);
   }
-
-
 }

@@ -14,5 +14,5 @@
         </div>
     </div>
 </div>
-<app-sql-template [queryTemplateChild]="queryTemplateob" *ngIf="this.queryTemplateob.language === 'MYSQL'"></app-sql-template>
-<app-generic-input-template [queryTemplateChild]="queryTemplateob"></app-generic-input-template>
+<app-sql-template [queryTemplateChild]="queryTemplateob" *ngIf="this.navRoute === 'sql'"></app-sql-template>
+<app-generic-input-template [queryTemplateChild]="queryTemplateob" *ngIf="this.navRoute === 'generic'"></app-generic-input-template>

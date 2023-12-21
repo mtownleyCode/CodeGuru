@@ -14,7 +14,7 @@ namespace CodeGuruBackend.Helpers
         
             var jwtTokenHandler = new JwtSecurityTokenHandler();
 
-            var key = Encoding.ASCII.GetBytes(Secret.bearerKey);
+            var key = Encoding.ASCII.GetBytes(Secret.APIKey);
 
             var tokenDescriptor = new SecurityTokenDescriptor()
             {

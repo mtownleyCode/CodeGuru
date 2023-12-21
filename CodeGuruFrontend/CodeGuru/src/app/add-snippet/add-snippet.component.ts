@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { SnippetsService } from '../snippets.service';
 import { Snippets } from '../snippets';
 import { Router } from '@angular/router';
+import { LanguagesService } from '../languages.service';
+import { Language } from '../language';
+
 @Component({
   selector: 'app-add-snippet',
   templateUrl: './add-snippet.component.html',
@@ -10,19 +13,29 @@ import { Router } from '@angular/router';
 export class AddSnippetComponent implements OnInit {
   snippets: Snippets[] = [];
   newSnippet: Snippets = {} as Snippets;
+  languages: Language[] = [];
   selectedLanguage: string = '';
   keywordOptions: string[] = [];
-
-  constructor(private snippetService: SnippetsService, private router: Router) {}
+  constructor(private snippetService: SnippetsService, private languagesService: LanguagesService, private router: Router) {}
 
   ngOnInit(): void {
     this.fetchSnippets();
+    this.fetchLanguages();
   }
 
   fetchSnippets(): void {
     this.snippetService.GetSnippets().subscribe(
       (snippetsResult) => {
         this.snippets = snippetsResult;
+      }
+    );
+  }
+
+  fetchLanguages(): void {
+    this.languagesService.GetLanguages().subscribe(
+      (languagesResult) => {
+        this.languages = languagesResult;
+        console.log(this.languages);
       }
     );
   }

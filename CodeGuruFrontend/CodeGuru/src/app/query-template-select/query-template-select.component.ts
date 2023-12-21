@@ -26,6 +26,7 @@ export class QueryTemplateSelectComponent implements OnInit{
   query: Query={} as Query;
   queryTemplateId: number = 0;
   queryTemplateob: QueryTemplate= {} as QueryTemplate;
+  navRoute: string = "";
 
   
 
@@ -70,6 +71,16 @@ export class QueryTemplateSelectComponent implements OnInit{
 
   SetTemplate(template: string){
     this.queryTemplateob.elementType = template;
+    if ((this.queryTemplateob.elementType === "Form" || this.queryTemplateob.elementType === "Table") && this.queryTemplateob.language != "MYSQL" ){
+      this.navRoute = "generic";
+    }
+    else if (this.queryTemplateob.language === "MYSQL"){
+      this.navRoute = "sql"
+    }
+    else {
+      this.navRoute = this.queryTemplateob.elementType;
+    }
+    console.log(this.navRoute)
   }
 
   NavigateToCustomTemplate(){

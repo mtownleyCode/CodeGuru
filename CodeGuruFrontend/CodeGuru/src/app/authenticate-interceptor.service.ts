@@ -10,7 +10,9 @@ import { SpinnerService } from './spinner/spinner.service';
 
 export class AuthenticateInterceptorService implements HttpInterceptor{
   
+
   constructor(private spinnerService: SpinnerService, private userService: UserService) { }
+
 
     intercept(req: HttpRequest<any>, next: HttpHandler):Observable<HttpEvent<any>>{
 
