@@ -82,7 +82,7 @@ export class QueryTemplateSelectComponent implements OnInit{
   }
 
   SetLanguage(language: string){
-    this.queryTemplateob.language= language
+    this.queryTemplateob.language = language
     this.filteredTemplates = this.queryTemplates.filter(q => q.language === language && q.elementType != "");
     
   }

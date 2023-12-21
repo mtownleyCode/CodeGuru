@@ -1,0 +1,23 @@
+<div class="mainContainer">
+    <div class="login">
+        <h2 style="text-align: center;">Free Text</h2>
+        <div class="container">
+            <div class="child">
+                <form (ngSubmit)="freeTextCode()">
+                    <textarea rows="10" cols="100" name="query" [(ngModel)]="userInput" style="padding: 6px;">
+                    </textarea>
+                    <div class="submitContainer text-center">
+                        <input type="submit" value="Get Code" class="button btn btn-primary" style="width: 150px; margin-top: 20px; margin-bottom: 25px;">
+                    </div>                    
+                </form>
+            </div>
+        </div>
+        <h2 style="text-align: center;">{{queryTemplateChild.language}} Code</h2>
+        <div class="container">
+            <div class="child">
+                <textarea rows="10" cols="100" style="padding: 6px;">{{response}}</textarea>
+            </div>
+        </div>
+    </div> 
+</div>
+<router-outlet></router-outlet>
